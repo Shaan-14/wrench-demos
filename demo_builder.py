@@ -7,13 +7,13 @@ import requests
 import subprocess
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
-from groq import Groq
+import anthropic
 
 load_dotenv()
 
 SERPAPI_KEY = os.getenv("SERPAPI_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-groq_client = Groq(api_key=GROQ_API_KEY)
+claude = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 DEMOS_DIR = "demos"
@@ -56,8 +56,8 @@ def search_business_info(business_name, city):
     return info
 
 def generate_website(info, biz_type):
-    """Use Groq to generate a full HTML website for this business."""
-    print(f"   🤖 Generating website...")
+    """Use Claude to generate a full HTML website for this business."""
+    print(f"   🤖 Generating website with Claude...")
 
     prompt = f"""You are an expert web designer. Generate a complete, beautiful, single-file HTML website for a local {biz_type} business.
 
@@ -69,33 +69,30 @@ Info found online: {info.get('description', 'Local ' + biz_type + ' business')}
 Design requirements:
 - Modern, professional design with a color scheme that fits a {biz_type} business
 - Single HTML file with all CSS and JS embedded
-- Sections: Hero, About, Services, Why Choose Us, Contact/CTA
-- Mobile responsive
-- Include a prominent "Get a Free Quote" button that links to tel:{info.get('phone', '')}
-- Use images from Unsplash Source with relevant keywords for a {biz_type} business
-- Hero image: https://source.unsplash.com/1200x600/?{biz_type},professional
-- Service images: https://source.unsplash.com/600x400/?{biz_type}+[specific service name]
-- Each image URL must use a DIFFERENT keyword so no duplicates
-- Examples for handyman: https://source.unsplash.com/600x400/?tools, https://source.unsplash.com/600x400/?repair, https://source.unsplash.com/600x400/?renovation
-- Examples for landscaping: https://source.unsplash.com/600x400/?garden, https://source.unsplash.com/600x400/?lawn, https://source.unsplash.com/600x400/?outdoor
-- Never use the same URL twice
-- Add a subtle banner at the top saying "⚡ Demo site built by Wrench Digital — wrenchdigital.ca"
-- Make it look like a real professional website, not a template
-- Services section should list 4-6 realistic services for a {biz_type} business
-- Include a reviews section with 2-3 placeholder 5-star reviews that sound realistic
-- Footer with business name, city, phone
+- Sections: Hero, About, Services, Why Choose Us, Reviews, Contact/CTA, Footer
+- Mobile responsive with hamburger menu
+- Smooth scroll animations
+- Include a prominent "Get a Free Quote" button
+- Use images from Unsplash Source with relevant keywords:
+  - Hero: https://source.unsplash.com/1200x600/?{biz_type.replace(' ', '+')},professional
+  - Each service gets a unique keyword, never repeat the same URL
+- Add a subtle top banner: "⚡ Demo site built by Wrench Digital — wrenchdigital.ca"
+- Services section: 5-6 realistic services for a {biz_type} business
+- Reviews section: 3 realistic 5-star Google-style reviews with names
+- Contact section with phone number prominently displayed
+- Footer with business name, city, phone, copyright
+- Make it look like a $2000 professional website
 
-Return ONLY the complete HTML code, nothing else. Start with <!DOCTYPE html>"""
+Return ONLY the complete HTML. Start with <!DOCTYPE html> and end with </html>. No markdown, no explanation."""
 
-    response = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=6000,
+    message = claude.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=8000,
+        messages=[{"role": "user", "content": prompt}]
     )
 
-    html = response.choices[0].message.content.strip()
+    html = message.content[0].text.strip()
 
-    # Clean up if Groq wraps in markdown
     if html.startswith("```"):
         html = re.sub(r'^```[a-z]*\n?', '', html)
         html = re.sub(r'\n?```$', '', html)

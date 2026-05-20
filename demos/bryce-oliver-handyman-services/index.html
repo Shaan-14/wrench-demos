@@ -3,206 +3,1052 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bryce Oliver Handyman Services</title>
+    <title>Bryce Oliver Handyman Services | Mississauga's Trusted Handyman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #D97706;
+            --primary-dark: #B45309;
+            --primary-light: #FBBF24;
+            --secondary: #1E3A5F;
+            --secondary-dark: #0F2744;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .banner {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(90deg, var(--secondary-dark), var(--secondary));
+            color: var(--white);
             text-align: center;
+            padding: 10px 20px;
             font-size: 14px;
         }
-        .hero {
-            background-image: url('https://source.unsplash.com/1200x600/?handyman,professional');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
+
+        .top-banner a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 600;
         }
+
+        .top-banner a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: none;
+        }
+
+        .navbar.scrolled {
+            top: 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--secondary-dark);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white) !important;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: var(--white) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.9), rgba(15, 39, 68, 0.85)), 
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=600&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 160px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--white), transparent);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: #22C55E;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
         .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-light);
+        }
+
+        .hero-description {
+            font-size: 19px;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--secondary-dark);
+            border-color: var(--white);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-light);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-float-card {
+            position: absolute;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-float-card.card-1 {
+            top: 20px;
+            right: -30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-float-card.card-2 {
+            bottom: 40px;
+            left: -30px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .card-text strong {
+            display: block;
+            color: var(--dark);
+            font-size: 16px;
+        }
+
+        .card-text span {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        .rating-stars {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .rating-text {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 20px;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .experience-badge .number {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            color: var(--secondary-dark);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 17px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feature-text strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .feature-text span {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 20px;
+            background: var(--light-gray);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 22px;
+            color: var(--secondary-dark);
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .why-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-us .section-label {
+            color: var(--primary-light);
+        }
+
+        .why-us .section-label::before {
+            background: var(--primary-light);
+        }
+
+        .why-us .section-title {
+            color: var(--white);
+        }
+
+        .why-us .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .why-us-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .why-us-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .why-us-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 25px;
+        }
+
+        .why-us-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .why-us-card p {
+            font-size: 15px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 120px 20px;
+            background: var(--white);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 100px;
+            font-family: Georgia, serif;
+            color: var(--primary);
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .review-stars {
+            color: var(--primary);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            color: var(--dark);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .review-avatar {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .review-info strong {
+            display: block;
+            color: var(--dark);
+            font-size: 17px;
+        }
+
+        .review-info span {
+            font-size: 14px;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .google-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.95), rgba(180, 83, 9, 0.95)), 
+                        url('https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1200&h=400&fit=crop') center/cover no-repeat;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 48px;
             margin-bottom: 20px;
         }
-        .hero button {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+
+        .cta p {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 40px;
         }
-        .hero button:hover {
-            background-color: #3e8e41;
+
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
-        .about {
-            padding: 50px;
-            text-align: center;
+
+        .cta-phone:hover {
+            transform: scale(1.05);
         }
-        .about h2 {
-            margin-bottom: 20px;
+
+        .cta-phone-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary);
         }
-        .services {
-            padding: 50px;
-            text-align: center;
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .services h2 {
-            margin-bottom: 20px;
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
         }
-        .service {
-            margin-bottom: 20px;
-            display: inline-block;
-            width: calc(33.33% - 20px);
-            margin: 10px;
-            background-color: #f7f7f7;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
         }
-        .service img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px 10px 0 0;
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid var(--white);
+            transition: all 0.3s ease;
         }
-        .service h3 {
-            margin-top: 10px;
-            margin-bottom: 10px;
+
+        .btn-outline-white:hover {
+            background: var(--white);
+            color: var(--primary-dark);
         }
-        .why-choose-us {
-            padding: 50px;
-            text-align: center;
-        }
-        .why-choose-us h2 {
-            margin-bottom: 20px;
-        }
-        .reviews {
-            padding: 50px;
-            text-align: center;
-        }
-        .review {
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .review p {
-            margin-bottom: 10px;
-        }
+
+        /* Contact Section */
         .contact {
-            padding: 50px;
-            text-align: center;
+            padding: 120px 20px;
+            background: var(--light-gray);
         }
-        .contact h2 {
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            color: var(--secondary-dark);
             margin-bottom: 20px;
         }
-        .contact button {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+
+        .contact-info > p {
+            color: var(--gray);
+            font-size: 17px;
+            margin-bottom: 40px;
         }
-        .contact button:hover {
-            background-color: #3e8e41;
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-            clear: both;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
-        @media only screen and (max-width: 768px) {
-            .service {
-                width: 100%;
-                margin: 10px 0;
-            }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--white);
+            flex-shrink: 0;
         }
-    </style>
-</head>
-<body>
-    <div class="banner">
-        ⚡ Demo site built by Wrench Digital — <a href="https://wrenchdigital.ca" target="_blank" style="color: #fff;">wrenchdigital.ca</a>
-    </div>
-    <div class="hero">
-        <h1>Bryce Oliver Handyman Services</h1>
-        <button onclick="location.href='tel:5555555555'">Get a Free Quote</button>
-    </div>
-    <div class="about">
-        <h2>About Us</h2>
-        <p>We are a team of professional handymen dedicated to providing high-quality services to homeowners and businesses in Mississauga, ON.</p>
-    </div>
-    <div class="services">
-        <h2>Our Services</h2>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?tools" alt="Tools">
-            <h3>Tool Repair</h3>
-            <p>We repair and maintain all types of tools to ensure they are in good working condition.</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?plumbing" alt="Plumbing">
-            <h3>Plumbing Services</h3>
-            <p>We provide a wide range of plumbing services, including pipe repair and installation.</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?electrical" alt="Electrical">
-            <h3>Electrical Services</h3>
-            <p>We offer electrical services, including wiring and lighting installation.</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?carpentry" alt="Carpentry">
-            <h3>Carpentry Services</h3>
-            <p>We provide carpentry services, including furniture repair and construction.</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?renovation" alt="Renovation">
-            <h3>Renovation Services</h3>
-            <p>We offer renovation services, including kitchen and bathroom remodeling.</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?painting" alt="Painting">
-            <h3>Painting Services</h3>
-            <p>We provide painting services, including interior and exterior painting.</p>
-        </div>
-    </div>
-    <div class="why-choose-us">
-        <h2>Why Choose Us</h2>
-        <p>We are committed to providing high-quality services at affordable prices. Our team of professional handymen are dedicated to ensuring that our customers are satisfied with our work.</p>
-    </div>
-    <div class="reviews">
-        <h2>What Our Customers Say</h2>
-        <div class="review">
-            <p>"Bryce Oliver Handyman Services did an excellent job on my kitchen renovation. They were professional, efficient, and courteous. I would highly recommend them to anyone looking for a reliable handyman service."</p>
-            <p>— John Doe</p>
-        </div>
-        <div class="review">
-            <p>"I was impressed with the quality of work provided by Bryce Oliver Handyman Services. They repaired my leaky faucet and installed new lighting in my bathroom. I would definitely use them again in the future."</p>
-            <p>— Jane Smith</p>
-        </div>
-        <div class="review">
-            <p>"Bryce Oliver Handyman Services did a great job on my deck repair. They were prompt, professional, and reasonably priced. I would recommend them to anyone looking for a reliable handyman service."</p>
-            <p>— Bob Johnson</p>
-        </div>
-    </div>
-    <div class="contact">
-        <h2>Get in Touch</h2>
-        <p>Contact us today to schedule a free quote or to learn more about our services.</p>
-        <button onclick="location.href='tel:5555555555'">Get a Free Quote</button>
-    </div>
-    <div class="footer">
-        Bryce Oliver Handyman Services | Mississauga, ON | <a href="tel:5555555555" style="color: #fff;">555-555-5555</a>
-    </div>
-</body>
-</html>
+
+        .contact-item-text strong {
+            display: block;
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .contact-item-text span,
+        .contact-item-text a {
+            font-size: 16px;
+            color: var(--gray);
+            text-decoration: none;
+        }
+
+        .contact-item-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form-wrapper {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 26px;
+            color: var(--secondary-dark);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top:
