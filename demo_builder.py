@@ -90,7 +90,7 @@ Return ONLY the complete HTML code, nothing else. Start with <!DOCTYPE html>"""
     response = groq_client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=4000,
+        max_tokens=6000,
     )
 
     html = response.choices[0].message.content.strip()

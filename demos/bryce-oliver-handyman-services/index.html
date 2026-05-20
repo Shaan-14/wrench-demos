@@ -1,4 +1,3 @@
-<![CDATA[
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,33 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bryce Oliver Handyman Services</title>
     <style>
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        a {
-            text-decoration: none;
-            color: #337ab7;
-        }
-        a:hover {
-            color: #23527c;
-        }
-        /* Banner Styles */
         .banner {
-            background-color: #fff;
+            background-color: #333;
+            color: #fff;
             padding: 10px;
             text-align: center;
-            border-bottom: 1px solid #ddd;
+            font-size: 14px;
         }
-        /* Hero Styles */
         .hero {
             background-image: url('https://source.unsplash.com/1200x600/?handyman,professional');
             background-size: cover;
@@ -43,165 +27,182 @@
             align-items: center;
             color: #fff;
         }
-        .hero-content {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
-        /* About Styles */
+        .hero button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero button:hover {
+            background-color: #3e8e41;
+        }
         .about {
-            padding: 20px;
+            padding: 50px;
+            text-align: center;
         }
-        .about img {
-            float: left;
-            margin-right: 20px;
-            border-radius: 10px;
+        .about h2 {
+            margin-bottom: 20px;
         }
-        /* Services Styles */
         .services {
-            padding: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+        .services h2 {
+            margin-bottom: 20px;
         }
         .service {
             margin-bottom: 20px;
+            display: inline-block;
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .service img {
-            float: left;
-            margin-right: 20px;
-            border-radius: 10px;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
         }
-        /* Why Choose Us Styles */
+        .service h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
         .why-choose-us {
-            padding: 20px;
-            background-color: #f7f7f7;
-            border-bottom: 1px solid #ddd;
+            padding: 50px;
+            text-align: center;
         }
-        /* Reviews Styles */
+        .why-choose-us h2 {
+            margin-bottom: 20px;
+        }
         .reviews {
-            padding: 20px;
+            padding: 50px;
+            text-align: center;
         }
         .review {
             margin-bottom: 20px;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .review img {
-            float: left;
-            margin-right: 20px;
-            border-radius: 50%;
+        .review p {
+            margin-bottom: 10px;
         }
-        /* Contact Styles */
         .contact {
-            padding: 20px;
-            background-color: #337ab7;
-            color: #fff;
+            padding: 50px;
             text-align: center;
         }
-        .contact a {
-            color: #fff;
+        .contact h2 {
+            margin-bottom: 20px;
         }
-        /* Footer Styles */
+        .contact button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact button:hover {
+            background-color: #3e8e41;
+        }
         .footer {
-            padding: 10px;
             background-color: #333;
             color: #fff;
+            padding: 10px;
             text-align: center;
+            font-size: 14px;
+            clear: both;
         }
-        /* Mobile Responsive Styles */
         @media only screen and (max-width: 768px) {
-            .hero {
-                height: 50vh;
-            }
-            .about img, .service img, .review img {
-                float: none;
-                margin: 10px auto;
+            .service {
+                width: 100%;
+                margin: 10px 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="banner">
-        <span>⚡ Demo site built by Wrench Digital — <a href="https://wrenchdigital.ca">wrenchdigital.ca</a></span>
+        ⚡ Demo site built by Wrench Digital — <a href="https://wrenchdigital.ca" target="_blank" style="color: #fff;">wrenchdigital.ca</a>
     </div>
     <div class="hero">
-        <div class="hero-content">
-            <h1>Bryce Oliver Handyman Services</h1>
-            <p>Professional handyman services in Mississauga, ON</p>
-            <a href="tel:1234567890" class="btn">Get a Free Quote</a>
-        </div>
+        <h1>Bryce Oliver Handyman Services</h1>
+        <button onclick="location.href='tel:5555555555'">Get a Free Quote</button>
     </div>
     <div class="about">
-        <img src="https://source.unsplash.com/600x400/?construction" alt="Handyman working">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        <h2>About Us</h2>
+        <p>We are a team of professional handymen dedicated to providing high-quality services to homeowners and businesses in Mississauga, ON.</p>
     </div>
     <div class="services">
         <h2>Our Services</h2>
         <div class="service">
             <img src="https://source.unsplash.com/600x400/?tools" alt="Tools">
-            <p>Tool Sharpening and Maintenance</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?repair" alt="Repair">
-            <p>Home Repair and Maintenance</p>
-        </div>
-        <div class="service">
-            <img src="https://source.unsplash.com/600x400/?renovation" alt="Renovation">
-            <p>Home Renovation and Remodeling</p>
+            <h3>Tool Repair</h3>
+            <p>We repair and maintain all types of tools to ensure they are in good working condition.</p>
         </div>
         <div class="service">
             <img src="https://source.unsplash.com/600x400/?plumbing" alt="Plumbing">
-            <p>Plumbing Installation and Repair</p>
+            <h3>Plumbing Services</h3>
+            <p>We provide a wide range of plumbing services, including pipe repair and installation.</p>
         </div>
         <div class="service">
             <img src="https://source.unsplash.com/600x400/?electrical" alt="Electrical">
-            <p>Electrical Installation and Repair</p>
+            <h3>Electrical Services</h3>
+            <p>We offer electrical services, including wiring and lighting installation.</p>
         </div>
         <div class="service">
             <img src="https://source.unsplash.com/600x400/?carpentry" alt="Carpentry">
-            <p>Carpentry and Woodworking</p>
+            <h3>Carpentry Services</h3>
+            <p>We provide carpentry services, including furniture repair and construction.</p>
+        </div>
+        <div class="service">
+            <img src="https://source.unsplash.com/600x400/?renovation" alt="Renovation">
+            <h3>Renovation Services</h3>
+            <p>We offer renovation services, including kitchen and bathroom remodeling.</p>
+        </div>
+        <div class="service">
+            <img src="https://source.unsplash.com/600x400/?painting" alt="Painting">
+            <h3>Painting Services</h3>
+            <p>We provide painting services, including interior and exterior painting.</p>
         </div>
     </div>
     <div class="why-choose-us">
-        <h2>Why Choose Us?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        <h2>Why Choose Us</h2>
+        <p>We are committed to providing high-quality services at affordable prices. Our team of professional handymen are dedicated to ensuring that our customers are satisfied with our work.</p>
     </div>
     <div class="reviews">
         <h2>What Our Customers Say</h2>
         <div class="review">
-            <img src="https://source.unsplash.com/100x100/?person" alt="Customer">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-            <span>5/5 stars</span>
+            <p>"Bryce Oliver Handyman Services did an excellent job on my kitchen renovation. They were professional, efficient, and courteous. I would highly recommend them to anyone looking for a reliable handyman service."</p>
+            <p>— John Doe</p>
         </div>
         <div class="review">
-            <img src="https://source.unsplash.com/100x100/?face" alt="Customer">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-            <span>5/5 stars</span>
+            <p>"I was impressed with the quality of work provided by Bryce Oliver Handyman Services. They repaired my leaky faucet and installed new lighting in my bathroom. I would definitely use them again in the future."</p>
+            <p>— Jane Smith</p>
         </div>
         <div class="review">
-            <img src="https://source.unsplash.com/100x100/?profile" alt="Customer">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-            <span>5/5 stars</span>
+            <p>"Bryce Oliver Handyman Services did a great job on my deck repair. They were prompt, professional, and reasonably priced. I would recommend them to anyone looking for a reliable handyman service."</p>
+            <p>— Bob Johnson</p>
         </div>
     </div>
     <div class="contact">
         <h2>Get in Touch</h2>
-        <p>Call us today to schedule your appointment!</p>
-        <a href="tel:1234567890" class="btn">Get a Free Quote</a>
+        <p>Contact us today to schedule a free quote or to learn more about our services.</p>
+        <button onclick="location.href='tel:5555555555'">Get a Free Quote</button>
     </div>
     <div class="footer">
-        <p>&copy; 2024 Bryce Oliver Handyman Services | Mississauga, ON | <a href="tel:1234567890">123-456-7890</a></p>
+        Bryce Oliver Handyman Services | Mississauga, ON | <a href="tel:5555555555" style="color: #fff;">555-555-5555</a>
     </div>
-    <script>
-        // Add event listener to button
-        document.querySelector('.btn').addEventListener('click', function() {
-            // Add animation to button
-            this.classList.add('animate');
-            // Remove animation after 1 second
-            setTimeout(function() {
-                document.querySelector('.btn').classList.remove('animate');
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
-]]>
