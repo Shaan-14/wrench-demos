@@ -16,18 +16,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: #2c3e50;
+            line-height: 1.6;
             background: #ffffff;
         }
 
         .top-banner {
-            background: #1a252f;
+            background: #1a1a1a;
             color: #ffffff;
             text-align: center;
-            padding: 10px;
-            font-size: 14px;
+            padding: 8px 20px;
+            font-size: 13px;
         }
 
         .top-banner a {
@@ -42,7 +42,6 @@
 
         nav {
             background: #ffffff;
-            padding: 1rem 5%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -55,12 +54,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #1a252f;
+            color: #2c3e50;
         }
 
         .nav-links {
@@ -70,8 +70,8 @@
         }
 
         .nav-links a {
-            text-decoration: none;
             color: #2c3e50;
+            text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -109,17 +109,16 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 37, 47, 0.7);
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
             text-align: center;
             max-width: 800px;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
         .hero h1 {
@@ -141,15 +140,15 @@
         }
 
         .btn {
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
+            padding: 14px 32px;
             font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
         }
 
         .btn-primary {
@@ -159,6 +158,8 @@
 
         .btn-primary:hover {
             background: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
         }
 
         .btn-secondary {
@@ -167,11 +168,13 @@
         }
 
         .btn-secondary:hover {
-            background: #f0f0f0;
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         section {
-            padding: 80px 5%;
+            padding: 80px 2rem;
         }
 
         .container {
@@ -182,21 +185,26 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: #1a252f;
             margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #5a6c7d;
-            margin-bottom: 3rem;
             font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
@@ -204,12 +212,12 @@
             padding: 2rem;
             border-radius: 8px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .service-icon {
@@ -221,19 +229,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #ffffff;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
-            color: #1a252f;
+            color: #2c3e50;
         }
 
         .service-card p {
-            color: #5a6c7d;
-            line-height: 1.7;
+            color: #6c757d;
+            line-height: 1.6;
         }
 
         #about {
@@ -241,39 +249,70 @@
         }
 
         .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .about-content p {
-            font-size: 1.1rem;
-            color: #5a6c7d;
+        .about-text h2 {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            color: #6c757d;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .why-item {
-            background: #ffffff;
+            text-align: center;
             padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #4a90e2;
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            background: #4a90e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: bold;
         }
 
         .why-item h3 {
             font-size: 1.3rem;
-            color: #1a252f;
             margin-bottom: 0.5rem;
+            color: #2c3e50;
         }
 
         .why-item p {
-            color: #5a6c7d;
+            color: #6c757d;
         }
 
         #reviews {
@@ -284,13 +323,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .review-card {
             background: #ffffff;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .review-header {
@@ -300,27 +340,30 @@
             margin-bottom: 1rem;
         }
 
-        .reviewer-name {
-            font-weight: 600;
-            color: #1a252f;
+        .review-name {
+            font-weight: 700;
+            color: #2c3e50;
             font-size: 1.1rem;
         }
 
         .stars {
-            color: #ffa500;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            color: #ffc107;
+            font-size: 1rem;
+        }
+
+        .stars::before {
+            content: '★★★★★';
         }
 
         .review-text {
-            color: #5a6c7d;
-            line-height: 1.7;
+            color: #6c757d;
+            line-height: 1.6;
             font-style: italic;
         }
 
         .contact-form {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 3rem auto 0;
             background: #f8f9fa;
             padding: 3rem;
             border-radius: 8px;
@@ -333,7 +376,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #1a252f;
+            color: #2c3e50;
             font-weight: 600;
         }
 
@@ -341,10 +384,11 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #d0d7de;
+            border: 1px solid #dee2e6;
             border-radius: 5px;
             font-size: 1rem;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
@@ -355,44 +399,68 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90e2;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
         }
 
         footer {
-            background: #1a252f;
+            background: #2c3e50;
             color: #ffffff;
-            padding: 3rem 5%;
-            text-align: center;
+            padding: 3rem 2rem 2rem;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .footer-content h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .footer-content p {
-            margin-bottom: 0.5rem;
-            color: #b8c5d0;
+        .footer-info {
+            margin-bottom: 2rem;
+            color: #b0bec5;
         }
 
-        .footer-credit {
+        .footer-info p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3d5266;
+            padding-top: 1.5rem;
             margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #2c3e50;
-            color: #b8c5d0;
+            color: #b0bec5;
+            font-size: 0.9rem;
         }
 
-        .footer-credit a {
+        .footer-bottom a {
             color: #4a90e2;
             text-decoration: none;
         }
 
-        .footer-credit a:hover {
+        .footer-bottom a:hover {
             text-decoration: underline;
         }
 
@@ -402,20 +470,24 @@
             }
 
             .nav-links {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
                 background: #ffffff;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.1);
-                padding: 2rem 0;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none;
+                gap: 0;
             }
 
             .nav-links.active {
-                left: 0;
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 0.8rem 2rem;
             }
 
             .hero h1 {
@@ -430,8 +502,22 @@
                 font-size: 2rem;
             }
 
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
             .contact-form {
                 padding: 2rem 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -443,12 +529,12 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo">Bryce Oliver Handyman</div>
+            <div class="logo">Bryce Oliver Handyman Services</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#why-choose-us">Why Choose Us</a></li>
+                <li><a href="#why">Why Choose Us</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -460,10 +546,10 @@
         </div>
     </nav>
 
-    <section class="hero" id="home">
+    <section id="home" class="hero">
         <div class="hero-content">
             <h1>Professional Handyman Services in Mississauga</h1>
-            <p>Quality repairs and home improvements you can trust</p>
+            <p>Quality repairs and renovations you can trust</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
                 <a href="#services" class="btn btn-secondary">View Services</a>
@@ -474,66 +560,64 @@
     <section id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Professional handyman solutions for your home</p>
+            <p class="section-subtitle">From minor repairs to complete renovations, we handle all your home improvement needs with expertise and care.</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 32H32M10 16L20 6L30 16M12 14V30H28V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3>General Repairs</h3>
-                    <p>From fixing squeaky doors to repairing drywall, we handle all your general home repair needs with precision and care.</p>
+                    <h3>Home Repairs</h3>
+                    <p>Expert repairs for drywall, doors, windows, and general household fixes. We ensure your home stays in top condition.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 3v18"/>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8L8 12M8 12L12 16M8 12H20M28 24L32 28M32 28L28 32M32 28H20M10 28H30M10 12V28M30 12V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Painting & Drywall</h3>
+                    <p>Professional interior and exterior painting services, plus drywall installation and repairs for a flawless finish.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 10V30M10 20H30M14 14L26 26M26 14L14 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
                     <h3>Carpentry</h3>
-                    <p>Custom carpentry work including trim installation, shelving, cabinet repairs, and other woodworking projects.</p>
+                    <p>Custom carpentry work including trim installation, cabinet repairs, shelving, and other woodworking projects.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 4V8M20 32V36M36 20H32M8 20H4M31.3 8.7L28.5 11.5M11.5 28.5L8.7 31.3M31.3 31.3L28.5 28.5M11.5 11.5L8.7 8.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3>Painting</h3>
-                    <p>Interior and exterior painting services to refresh your home with clean, professional finishes.</p>
+                    <h3>Electrical Work</h3>
+                    <p>Safe and reliable electrical repairs, fixture installation, outlet replacement, and lighting solutions.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6C15 6 12 10 12 14C12 16 13 18 14 19L16 32H24L26 19C27 18 28 16 28 14C28 10 25 6 20 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 32H24M18 36H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3>Fixture Installation</h3>
-                    <p>Professional installation of light fixtures, ceiling fans, shelves, and other home fixtures.</p>
+                    <h3>Plumbing Repairs</h3>
+                    <p>Fix leaks, unclog drains, repair faucets, and handle various plumbing issues quickly and efficiently.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="12" width="28" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 12V8H26V12M6 22H34M20 22V32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
                     <h3>Assembly Services</h3>
-                    <p>Furniture assembly and installation services for all your flat-pack and ready-to-assemble items.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                    </div>
-                    <h3>Door & Lock Services</h3>
-                    <p>Door repairs, lock installations, and hardware replacement to keep your home secure.</p>
+                    <p>Furniture assembly, fixture installation, and mounting services for TVs, shelves, and more.</p>
                 </div>
             </div>
         </div>
@@ -541,35 +625,44 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About Bryce Oliver Handyman Services</h2>
             <div class="about-content">
-                <p>Bryce Oliver Handyman Services is your trusted partner for professional home repairs and improvements in Mississauga. We pride ourselves on delivering quality workmanship and exceptional customer service on every project.</p>
-                <p>Whether you need a small repair or a larger home improvement project, we approach every job with the same level of dedication and attention to detail. Our goal is to make your home maintenance hassle-free and ensure your complete satisfaction.</p>
-                <p>We understand that your home is your most valuable asset, and we treat it with the respect it deserves. Our reliable, professional service has made us a preferred choice for homeowners throughout Mississauga.</p>
+                <div class="about-text">
+                    <h2>About Bryce Oliver Handyman Services</h2>
+                    <p>Welcome to Bryce Oliver Handyman Services, your trusted partner for all home repair and improvement needs in Mississauga. We take pride in delivering quality workmanship and exceptional customer service on every project.</p>
+                    <p>Whether you need a small repair or a larger renovation project, our skilled team is here to help. We believe in honest communication, fair pricing, and treating every home with the respect it deserves.</p>
+                    <p>Our commitment is to provide reliable, professional service that exceeds your expectations. We arrive on time, work efficiently, and leave your property clean and improved.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/handymans1/600/400" alt="Handyman at work">
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="why-choose-us">
+    <section id="why">
         <div class="container">
             <h2 class="section-title">Why Choose Us</h2>
-            <p class="section-subtitle">What sets us apart from the rest</p>
+            <p class="section-subtitle">We're committed to providing the best handyman services in Mississauga with professionalism and attention to detail.</p>
             <div class="why-grid">
                 <div class="why-item">
-                    <h3>Professional Service</h3>
-                    <p>We bring expertise and professionalism to every project, ensuring high-quality results you can count on.</p>
+                    <div class="why-icon">✓</div>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed and insured for your peace of mind and protection on every job.</p>
                 </div>
                 <div class="why-item">
-                    <h3>Reliable & Punctual</h3>
-                    <p>We respect your time and arrive when scheduled, completing projects within the agreed timeframe.</p>
-                </div>
-                <div class="why-item">
+                    <div class="why-icon">$</div>
                     <h3>Fair Pricing</h3>
-                    <p>Transparent, competitive pricing with no hidden fees. You'll know the cost upfront before we begin.</p>
+                    <p>Transparent quotes with no hidden fees. You'll know exactly what to expect before we start.</p>
                 </div>
                 <div class="why-item">
-                    <h3>Quality Workmanship</h3>
-                    <p>We take pride in our work and stand behind every job with a commitment to excellence and durability.</p>
+                    <div class="why-icon">⚡</div>
+                    <h3>Fast Response</h3>
+                    <p>Quick scheduling and prompt arrival. We respect your time and stick to our commitments.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">★</div>
+                    <h3>Quality Work</h3>
+                    <p>Superior craftsmanship on every project, large or small. Your satisfaction is our priority.</p>
                 </div>
             </div>
         </div>
@@ -578,28 +671,28 @@
     <section id="reviews">
         <div class="container">
             <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Real reviews from satisfied customers</p>
+            <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers across Mississauga.</p>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-header">
-                        <span class="reviewer-name">Jennifer</span>
-                        <span class="stars">★★★★★</span>
+                        <div class="review-name">Sarah M.</div>
+                        <div class="stars"></div>
                     </div>
-                    <p class="review-text">Bryce did an excellent job repairing our kitchen cabinets and installing new shelving in our garage. He was professional, on time, and his work quality exceeded our expectations. Highly recommend!</p>
+                    <p class="review-text">"Bryce did an excellent job repairing our drywall and painting our living room. He was professional, on time, and the quality of work was outstanding. Will definitely hire again for future projects!"</p>
                 </div>
                 <div class="review-card">
                     <div class="review-header">
-                        <span class="reviewer-name">Michael</span>
-                        <span class="stars">★★★★★</span>
+                        <div class="review-name">Michael T.</div>
+                        <div class="stars"></div>
                     </div>
-                    <p class="review-text">Very pleased with the painting work done in our living room and hallway. Bryce was meticulous with the prep work and the finish is flawless. Great communication throughout the project.</p>
+                    <p class="review-text">"Called for some electrical work and carpentry repairs. Bryce was very knowledgeable and fixed everything quickly. Fair pricing and great communication throughout. Highly recommend!"</p>
                 </div>
                 <div class="review-card">
                     <div class="review-header">
-                        <span class="reviewer-name">Sarah</span>
-                        <span class="stars">★★★★★</span>
+                        <div class="review-name">Jennifer K.</div>
+                        <div class="stars"></div>
                     </div>
-                    <p class="review-text">I had several small repairs that needed attention around the house. Bryce tackled them all efficiently and professionally. His pricing was fair and the quality of work was outstanding. Will definitely use his services again.</p>
+                    <p class="review-text">"Had several items on my honey-do list that needed attention. Bryce tackled them all efficiently and professionally. It's so nice to find a reliable handyman in Mississauga. Thank you!"</p>
                 </div>
             </div>
         </div>
@@ -607,8 +700,8 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get Your Free Quote</h2>
-            <p class="section-subtitle">Tell us about your project and we'll get back to you promptly</p>
+            <h2 class="section-title">Get a Free Quote</h2>
+            <p class="section-subtitle">Ready to get started? Fill out the form below and we'll get back to you promptly with a free, no-obligation quote.</p>
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -623,10 +716,10 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Tell us about your project</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
@@ -634,16 +727,18 @@
     <footer>
         <div class="footer-content">
             <h3>Bryce Oliver Handyman Services</h3>
-            <p>Serving Mississauga and surrounding areas</p>
-            <p>Quality handyman services you can trust</p>
-            <div class="footer-credit">
+            <div class="footer-info">
+                <p>Serving Mississauga and surrounding areas</p>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2024 Bryce Oliver Handyman Services. All rights reserved.</p>
-                <p>Website by <a href="https://wrenchdigital.ca" target="_blank">Wrench Digital</a> — wrenchdigital.ca</p>
+                <p>Website by <a href="https://wrenchdigital.ca" target="_blank">Wrench Digital — wrenchdigital.ca</a></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
@@ -651,16 +746,33 @@
             navLinks.classList.toggle('active');
         });
 
+        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your inquiry! We will contact you shortly.');
-            e.target.reset();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scroll offset for sticky nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
