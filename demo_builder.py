@@ -86,7 +86,7 @@ Design requirements:
 Return ONLY the complete HTML. Start with <!DOCTYPE html> and end with </html>. No markdown, no explanation."""
 
     message = claude.messages.create(
-        model="claude-opus-4-5",
+        model="claude-sonnet-4-5",
         max_tokens=8000,
         messages=[{"role": "user", "content": prompt}]
     )
