@@ -67,24 +67,27 @@ Phone: {info.get('phone', 'Call for a quote')}
 Info found online: {info.get('description', 'Local ' + biz_type + ' business')}
 
 Design requirements:
-- Modern, professional design with a color scheme that fits a {biz_type} business
+- Clean, modern, PROFESSIONAL design — white or light gray background, dark navy or charcoal text
+- NO gradient backgrounds — solid colors only
+- NO emojis anywhere on the page
 - Single HTML file with all CSS and JS embedded
-- Sections: Hero, About, Services, Why Choose Us, Reviews, Contact/CTA, Footer
-- Mobile responsive with hamburger menu
-- Smooth scroll animations
-- Include a prominent "Get a Free Quote" button
-- Use images from Unsplash Source with relevant keywords:
-  - Hero: https://source.unsplash.com/1200x600/?{biz_type.replace(' ', '+')},professional
-  - Each service gets a unique keyword, never repeat the same URL
-- Add a subtle top banner: "⚡ Demo site built by Wrench Digital — wrenchdigital.ca"
-- Services section: 5-6 realistic services for a {biz_type} business
-- Reviews section: 3 realistic 5-star Google-style reviews with names
-- Contact section with phone number prominently displayed
-- Footer with business name, city, phone, copyright
-- Make it look like a $2000 professional website
+- Mobile responsive with working hamburger menu
+- Smooth scroll so ALL nav links actually work and scroll to their section
+- Sections IN ORDER: Nav, Hero, Services, About, Why Choose Us, Reviews, Contact Form, Footer
+- Hero: full width with a background image, dark overlay, white text, two buttons — "Get a Free Quote" (scrolls to contact) and "View Services" (scrolls to services)
+- Services: clean card grid, simple CSS icons, title, description for each
+- Reviews: 3 realistic Google-style reviews with first names, gold stars using CSS not emojis
+- Contact section: form with Name, Phone, Email, Message fields and a Submit button
+- All nav links must use href="#section-id" and scroll smoothly
+- Footer: dark background, business name, phone, city, "Website by Wrench Digital — wrenchdigital.ca"
+- Use images from picsum.photos with different seeds so no duplicates:
+  Hero: https://picsum.photos/seed/{biz_type.replace(' ', '')}hero/1200/600
+  Service images: https://picsum.photos/seed/{biz_type.replace(' ', '')}s1/600/400, seed s2, s3, s4 etc.
+- NO fake statistics like "15 years experience" unless found in business info
+- Add a thin top banner: "Demo site built by Wrench Digital — wrenchdigital.ca"
+- Look like a dollar 2000 professional website
 
 Return ONLY the complete HTML. Start with <!DOCTYPE html> and end with </html>. No markdown, no explanation."""
-
     message = claude.messages.create(
         model="claude-sonnet-4-5",
         max_tokens=8000,
