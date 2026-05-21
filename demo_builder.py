@@ -85,8 +85,8 @@ def generate_content(info, biz_type, accent_color):
 
     # Smart image seeds per business type
     image_urls = {
-        "handyman":            ("https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400", "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800"),
-        "landscaping":         ("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400", "https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=800"),
+        "handyman": ("https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
+        "landscaping":         ("htt    ps://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400", "https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=800"),
         "snow removal":        ("https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800"),
         "cleaning service":    ("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400", "https://images.unsplash.com/photo-1527515545081-5db817172677?w=800"),
         "painting contractor": ("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1400", "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800"),
