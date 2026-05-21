@@ -59,40 +59,83 @@ def generate_website(info, biz_type):
     """Use Claude to generate a full HTML website for this business."""
     print(f"   🤖 Generating website with Claude...")
 
-    prompt = f"""You are an expert web designer. Generate a complete, beautiful, single-file HTML website for a local {biz_type} business.
+    image_keywords = {
+        "handyman": ["tools", "home-repair", "renovation", "carpentry", "maintenance"],
+        "landscaping": ["garden", "lawn", "landscape", "outdoor", "grass"],
+        "snow removal": ["snow", "winter", "driveway", "ice", "clearing"],
+        "cleaning service": ["cleaning", "spotless", "house", "mop", "hygiene"],
+        "painting contractor": ["painting", "brush", "wall", "color", "interior"],
+        "fence installer": ["fence", "wood", "backyard", "gate", "privacy"],
+        "flooring installer": ["floor", "hardwood", "tile", "interior", "renovation"],
+        "tile installer": ["tile", "bathroom", "kitchen", "ceramic", "grout"],
+        "junk removal": ["truck", "removal", "hauling", "cleanup", "disposal"],
+        "moving company": ["moving", "boxes", "truck", "relocation", "packing"],
+        "plumber": ["plumbing", "pipes", "water", "bathroom", "tools"],
+        "electrician": ["electrical", "wiring", "tools", "safety", "power"],
+        "hvac": ["hvac", "airconditioning", "heating", "ventilation", "duct"],
+        "contractor": ["construction", "building", "tools", "renovation", "concrete"],
+    }
+    keywords = image_keywords.get(biz_type.lower(), ["professional", "work", "tools", "service", "team"])
+
+    prompt = f"""You are an expert web designer who builds high-end websites for local trades businesses. Generate a complete, beautiful, single HTML file website.
 
 Business name: {info['name']}
 City: {info['city']}
 Phone: {info.get('phone', 'Call for a quote')}
-Info found online: {info.get('description', 'Local ' + biz_type + ' business')}
+Business type: {biz_type}
+Info found online: {info.get('description', '')}
 
-Design requirements:
-- Clean, modern, PROFESSIONAL design — white or light gray background, dark navy or charcoal text
-- NO gradient backgrounds — solid colors only
-- NO emojis anywhere on the page
-- Single HTML file with all CSS and JS embedded
-- Mobile responsive with working hamburger menu
-- Smooth scroll so ALL nav links actually work and scroll to their section
-- Sections IN ORDER: Nav, Hero, Services, About, Why Choose Us, Reviews, Contact Form, Footer
-- Hero: full width with a background image, dark overlay, white text, two buttons — "Get a Free Quote" (scrolls to contact) and "View Services" (scrolls to services)
-- Services: clean card grid, simple CSS icons, title, description for each
-- Reviews: 3 realistic Google-style reviews with first names, gold stars using CSS not emojis
-- Contact section: form with Name, Phone, Email, Message fields and a Submit button
-- All nav links must use href="#section-id" and scroll smoothly
-- Footer: dark background, business name, phone, city, "Website by Wrench Digital — wrenchdigital.ca"
-- Use images from picsum.photos with different seeds so no duplicates:
-  Hero: https://picsum.photos/seed/{biz_type.replace(' ', '')}hero/1200/600
-  Service images: https://picsum.photos/seed/{biz_type.replace(' ', '')}s1/600/400, seed s2, s3, s4 etc.
-- NO fake statistics like "15 years experience" unless found in business info
-- Add a thin top banner: "Demo site built by Wrench Digital — wrenchdigital.ca"
-- Look like a dollar 2000 professional website
+DESIGN STYLE:
+- Clean, modern, premium feel — like a $2,000 professional website
+- White or off-white background (#FAFAFA), dark charcoal text (#1a1a1a)
+- ONE strong accent color that fits the business type (e.g. deep green for landscaping, navy for plumbing, warm orange for handyman)
+- NO gradients on backgrounds
+- NO emojis anywhere — use clean CSS icons or SVG symbols only
+- Google Fonts — use Inter for body, a strong display font for headings
+- Subtle box shadows, rounded corners, smooth hover effects
+- Full width sections with proper padding
 
-Return ONLY the complete HTML. Start with <!DOCTYPE html> and end with </html>. No markdown, no explanation."""
+SECTIONS (include ALL of these in order):
+1. TOP BANNER — thin bar: "Demo site by Wrench Digital — wrenchdigital.ca"
+2. NAV — logo left, links right (Home, Services, About, Contact), phone number, sticky on scroll
+3. HERO — full width, background image with dark overlay, large headline, subheading, two CTA buttons
+4. TRUST BAR — 3-4 trust signals in a row (Licensed & Insured, Serving GTA, Free Estimates, etc.)
+5. SERVICES — grid of 4-6 service cards, each with a clean SVG icon, title, 2-3 line description
+6. ABOUT — two column layout, text left, image right
+7. WHY CHOOSE US — 3-4 points with icons
+8. REVIEWS — 3 realistic 5-star reviews with first name + last initial, CSS gold stars
+9. CONTACT FORM — split layout: left has phone/hours, right has form (Name, Phone, Email, Service dropdown, Message, Submit)
+10. FOOTER — dark background, logo, services list, contact info, "Website by Wrench Digital"
+
+IMAGES:
+- Hero: https://picsum.photos/seed/{keywords[0]}hero/1400/700
+- About: https://picsum.photos/seed/{keywords[1]}about/800/600
+- Service cards use seeds: {keywords[0]}s1, {keywords[1]}s2, {keywords[2]}s3, {keywords[3]}s4 — all 400x300
+
+COPY:
+- Write realistic specific copy for a {biz_type} business in {info['city']}
+- Reviews should sound like real GTA homeowners
+- NO fake statistics unless found in: {info.get('description', '')}
+- All CTA buttons link to #contact or #services
+
+TECHNICAL:
+- All CSS in <style> tag
+- html {{ scroll-behavior: smooth; }}
+- Sticky nav with JS scroll shadow
+- Mobile responsive hamburger menu
+- Form submit shows thank you message via JS
+
+Return ONLY complete HTML from <!DOCTYPE html> to </html>. No markdown. No explanation."""
+
     message = claude.messages.create(
         model="claude-sonnet-4-5",
         max_tokens=8000,
         messages=[{"role": "user", "content": prompt}]
     )
+
+    if not message.content or not message.content[0].text:
+        print(f"   ❌ Claude returned empty response. Stop reason: {message.stop_reason}")
+        return None
 
     html = message.content[0].text.strip()
 
@@ -104,6 +147,9 @@ Return ONLY the complete HTML. Start with <!DOCTYPE html> and end with </html>. 
 
 def save_and_deploy(business_name, html):
     """Save the HTML file and push to GitHub so Vercel deploys it."""
+    if not html:
+        print("   ❌ No HTML to save, skipping.")
+        return None, None
     # Create URL-friendly slug
     slug = re.sub(r'[^a-z0-9]+', '-', business_name.lower()).strip('-')
     folder = os.path.join(DEMOS_DIR, slug)
@@ -143,7 +189,11 @@ def main():
 
         info = search_business_info(business_name, city)
         html = generate_website(info, biz_type)
-        url, slug = save_and_deploy(business_name, html)
+        result = save_and_deploy(business_name, html)
+        if not result[0]:
+            print("Demo generation failed. Try again.")
+            return
+        url, slug = result
 
         print(f"\n🎉 Demo ready!")
         print(f"   URL: {url}")
