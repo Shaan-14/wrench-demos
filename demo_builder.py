@@ -84,25 +84,26 @@ def generate_content(info, biz_type, accent_color):
     print(f"   🤖 Generating content with Claude...")
 
     # Smart image seeds per business type
-    image_seeds = {
-        "handyman": ("handyman-tools", "home-repair"),
-        "landscaping": ("garden-lawn", "landscape-outdoor"),
-        "snow removal": ("snow-winter", "driveway-clearing"),
-        "cleaning service": ("cleaning-home", "spotless-house"),
-        "painting contractor": ("painting-wall", "paint-brush"),
-        "fence installer": ("wood-fence", "backyard-gate"),
-        "flooring installer": ("hardwood-floor", "tile-interior"),
-        "tile installer": ("bathroom-tile", "kitchen-ceramic"),
-        "junk removal": ("truck-hauling", "cleanup-removal"),
-        "moving company": ("moving-boxes", "relocation-truck"),
-        "plumber": ("plumbing-pipes", "bathroom-repair"),
-        "electrician": ("electrical-wiring", "power-tools"),
-        "hvac": ("hvac-heating", "airconditioning-vent"),
-        "contractor": ("construction-tools", "renovation-building"),
-        "gym": ("gym-workout", "fitness-training"),
-        "restaurant": ("restaurant-food", "italian-dining"),
+    image_urls = {
+        "handyman":            ("https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
+        "landscaping":         ("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"),
+        "snow removal":        ("https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400", "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b?w=800"),
+        "cleaning service":    ("https://images.unsplash.com/photo-1527515545081-5db817172677?w=1400", "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800"),
+        "painting contractor": ("https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1400", "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800"),
+        "fence installer":     ("https://images.unsplash.com/photo-1558618047-f7f85e213d58?w=1400", "https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=800"),
+        "flooring installer":  ("https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=1400", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"),
+        "tile installer":      ("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1400", "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800"),
+        "junk removal":        ("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400", "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800"),
+        "moving company":      ("https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1400", "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"),
+        "plumber":             ("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1400", "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800"),
+        "electrician":         ("https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=1400", "https://images.unsplash.com/photo-1558402529-d2638857f87a?w=800"),
+        "hvac":                ("https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=1400", "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800"),
+        "contractor":          ("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"),
     }
-    seeds = image_seeds.get(biz_type.lower(), ("professional-work", "business-service"))
+    imgs = image_urls.get(biz_type.lower(), (
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400",
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
+    ))
 
     prompt = f"""You are a professional copywriter for a web design agency. Fill in the content variables for a {biz_type} business website.
 
@@ -118,12 +119,12 @@ Return ONLY a valid JSON object with these exact keys. No explanation, no markdo
   "TAGLINE": "[short catchy tagline for {biz_type} in {info['city']}]",
   "ACCENT_COLOR": "{accent_color}",
   "ACCENT_LIGHT": "[very light version of accent for backgrounds, e.g. #EFF6FF]",
-  "HERO_IMAGE": "https://picsum.photos/seed/{seeds[0]}/1400/700",
-  "ABOUT_IMAGE": "https://picsum.photos/seed/{seeds[1]}/800/600",
+  "HERO_IMAGE": "{imgs[0]}",
+  "ABOUT_IMAGE": "{imgs[1]}",
   "LOGO_FIRST": "[first word or initials of business name]",
   "LOGO_SECOND": "[rest of business name]",
   "PHONE": "{info.get('phone', 'Call for a quote')}",
-  "PHONE_RAW": "[phone digits only, no formatting]",
+  "PHONE_RAW": "{''.join(filter(str.isdigit, info.get('phone', '')))}",
   "CITY": "{info['city']}",
   "BUSINESS_TYPE": "[professional title for {biz_type}]",
   "HOURS": "Mon-Fri 7am-6pm · Sat 8am-2pm",
