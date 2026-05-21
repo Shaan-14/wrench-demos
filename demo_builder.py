@@ -85,20 +85,20 @@ def generate_content(info, biz_type, accent_color):
 
     # Smart image seeds per business type
     image_urls = {
-        "handyman":            ("https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
-        "landscaping":         ("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"),
-        "snow removal":        ("https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400", "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b?w=800"),
-        "cleaning service":    ("https://images.unsplash.com/photo-1527515545081-5db817172677?w=1400", "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800"),
-        "painting contractor": ("https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1400", "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800"),
-        "fence installer":     ("https://images.unsplash.com/photo-1558618047-f7f85e213d58?w=1400", "https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=800"),
-        "flooring installer":  ("https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=1400", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"),
-        "tile installer":      ("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1400", "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800"),
-        "junk removal":        ("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400", "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800"),
-        "moving company":      ("https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1400", "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"),
-        "plumber":             ("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1400", "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800"),
-        "electrician":         ("https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=1400", "https://images.unsplash.com/photo-1558402529-d2638857f87a?w=800"),
-        "hvac":                ("https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=1400", "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800"),
-        "contractor":          ("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"),
+        "handyman":            ("https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400", "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800"),
+        "landscaping":         ("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400", "https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=800"),
+        "snow removal":        ("https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800"),
+        "cleaning service":    ("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400", "https://images.unsplash.com/photo-1527515545081-5db817172677?w=800"),
+        "painting contractor": ("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1400", "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800"),
+        "fence installer":     ("https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=1400", "https://images.unsplash.com/photo-1558618047-f7f85e213d58?w=800"),
+        "flooring installer":  ("https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1400", "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800"),
+        "tile installer":      ("https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1400", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800"),
+        "junk removal":        ("https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1400", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"),
+        "moving company":      ("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400", "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=800"),
+        "plumber":             ("https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400", "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800"),
+        "electrician":         ("https://images.unsplash.com/photo-1558402529-d2638857f87a?w=1400", "https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=800"),
+        "hvac":                ("https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1400", "https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=800"),
+        "contractor":          ("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
     }
     imgs = image_urls.get(biz_type.lower(), (
         "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400",
@@ -257,6 +257,14 @@ def build_demo(business_name, city, biz_type):
     if not variables:
         print("   ❌ Failed to generate content.")
         return None
+    
+    # Force phone values from scraped info, don't trust Claude
+    if info.get("phone") and info["phone"] != "Call for a free quote":
+        variables["PHONE"] = info["phone"]
+        variables["PHONE_RAW"] = ''.join(filter(str.isdigit, info["phone"]))
+    else:
+        variables["PHONE"] = "Call for a Free Quote"
+        variables["PHONE_RAW"] = ""
 
     # Make sure accent light is set
     if "ACCENT_LIGHT" not in variables or not variables["ACCENT_LIGHT"]:
