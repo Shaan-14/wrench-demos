@@ -36,8 +36,7 @@ GTA_CITIES = [
 ]
 
 BUSINESS_TYPES = [
-   "landscaping", "cleaning",
-    "plumber", "electrician", "hvac",
+   "nail salon" 
 ]
 
 # Drop these 5 files into your templates/ folder:
@@ -142,22 +141,33 @@ def save_sent(sent):
 def check_website(url):
     if not url:
         return "no website"
+    
+    # Social media pages are not real websites
+    social = ["facebook.com", "instagram.com", "twitter.com", 
+              "yelp.com", "linkedin.com", "google.com", "maps.google"]
+    if any(s in url.lower() for s in social):
+        return "no website"
+    
     try:
         resp = requests.get(url, timeout=8, headers=HEADERS)
         if resp.status_code != 200:
-            return "website broken"
+            return "no website"
+        
         text = resp.text.lower()
         red_flags = [
             len(resp.text) < 2000,
             "coming soon" in text,
             "under construction" in text,
             "parked" in text,
+            "domain for sale" in text,
+            "buy this domain" in text,
+            text.count("<div") < 5,
         ]
         if sum(red_flags) >= 2:
             return "website very poor"
         return "has website"
     except:
-        return "website broken"
+        return "no website"
 
 def find_email(business_name, city):
     for source, domain, path_key in [
@@ -421,7 +431,8 @@ def main():
                 website = r.get("website", "")
                 status = check_website(website)
                 if status == "has website":
-                    continue
+                        continue
+# "website very poor" still gets added as a lead — it's a valid target
 
                 phone = r.get("phone", r.get("formatted_phone_number", ""))
                 address = r.get("address", "")

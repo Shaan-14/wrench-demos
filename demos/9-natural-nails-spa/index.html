@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9 Natural Nails & Spa — Where Natural Beauty Meets Luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--accent:#1D4ED8;--accent-light:#EFF6FF;--dark:#0a1628;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:#fff;}
+
+/* TOP BAR */
+.topbar{background:var(--dark);color:#fff;padding:9px 24px;font-size:13px;}
+.topbar-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.topbar-left{display:flex;gap:20px;align-items:center;}
+.topbar-left span{opacity:0.8;}
+.topbar-sep{opacity:0.3;}
+.topbar-right a{color:var(--accent);text-decoration:none;font-weight:600;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:3px solid var(--accent);box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-icon{width:42px;height:42px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.5;}
+.nav-logo-text{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--dark);letter-spacing:0.02em;}
+.nav-logo-text span{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:600;transition:color 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+.nav-links a:hover{color:var(--accent);}
+.nav-phone{background:var(--accent);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;text-align:center;}
+.nav-phone-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.85;}
+.nav-phone-num{font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.02em;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:24px;height:2px;background:var(--dark);border-radius:2px;}
+.mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid var(--border);padding:16px 24px;gap:12px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{text-decoration:none;color:var(--text);font-size:15px;font-weight:600;padding:10px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{background:var(--accent);color:#fff;text-align:center;padding:12px;border-radius:6px;border:none;}
+
+/* HERO */
+.hero{position:relative;min-height:640px;display:flex;align-items:center;background:var(--dark);overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400');background-size:cover;background-position:center;opacity:0.35;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,22,40,0.92) 45%,rgba(10,22,40,0.4) 100%);}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:100px 24px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px;}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;}
+.hero-title{font-family:'Oswald',sans-serif;font-size:clamp(52px,7vw,88px);font-weight:700;line-height:0.95;color:#fff;margin-bottom:24px;text-transform:uppercase;}
+.hero-title em{color:var(--accent);font-style:normal;display:block;}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.75);max-width:520px;line-height:1.7;margin-bottom:40px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.btn-primary{background:var(--accent);color:#fff;padding:15px 32px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;transition:opacity 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+.btn-primary:hover{opacity:0.9;}
+.btn-ghost{background:transparent;color:#fff;padding:15px 32px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;border:2px solid rgba(255,255,255,0.4);transition:border-color 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+.btn-ghost:hover{border-color:#fff;}
+.hero-trust{display:flex;flex-wrap:wrap;gap:24px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);}
+.hero-trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;}
+.hero-trust-item svg{width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:2.5;}
+
+/* STATS BAR */
+.stats-bar{background:var(--accent);padding:0;}
+.stats-bar-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:28px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.2);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Oswald',sans-serif;font-size:42px;font-weight:700;color:#fff;line-height:1;}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;margin-top:6px;font-weight:600;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--dark);padding:16px 24px;}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:40px;flex-wrap:wrap;}
+.trust-item{color:rgba(255,255,255,0.8);font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;letter-spacing:0.03em;}
+.trust-item svg{width:15px;height:15px;fill:none;stroke:var(--accent);stroke-width:2.5;}
+
+/* SECTIONS */
+section{padding:88px 24px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(34px,4vw,50px);font-weight:700;line-height:1.05;color:var(--dark);margin-bottom:16px;text-transform:uppercase;}
+.section-title em{color:var(--accent);font-style:normal;}
+.section-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:56px;}
+
+/* SERVICES */
+#services{background:#fff;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.service-card{background:#fff;padding:32px;transition:background 0.2s;}
+.service-card:hover{background:var(--accent-light);}
+.service-icon{width:48px;height:48px;background:var(--accent-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.service-icon svg{width:24px;height:24px;fill:none;stroke:var(--accent);stroke-width:2;}
+.service-card h3{font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;color:var(--dark);margin-bottom:10px;text-transform:uppercase;}
+.service-card p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.service-link{font-size:13px;font-weight:700;color:var(--accent);text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;}
+
+/* ABOUT / SPLIT */
+#about{background:#f8fafc;}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.split-img{border-radius:12px;overflow:hidden;position:relative;}
+.split-img img{width:100%;height:480px;object-fit:cover;display:block;}
+.split-img-badge{position:absolute;bottom:24px;left:24px;background:var(--accent);color:#fff;padding:16px 20px;border-radius:8px;}
+.split-img-badge-num{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;line-height:1;}
+.split-img-badge-text{font-size:12px;font-weight:600;opacity:0.9;text-transform:uppercase;letter-spacing:0.05em;}
+.split-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;}
+.cred-list{display:flex;flex-direction:column;gap:10px;margin-top:28px;}
+.cred-item{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:var(--text);}
+.cred-check{width:22px;height:22px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cred-check svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:3;}
+.split-cta{margin-top:32px;}
+
+/* WHY US */
+#why{background:#fff;}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+.why-card{text-align:center;padding:32px 24px;border-radius:12px;border:1px solid var(--border);transition:border-color 0.2s,box-shadow 0.2s;}
+.why-card:hover{border-color:var(--accent);box-shadow:0 4px 24px rgba(0,0,0,0.08);}
+.why-icon{width:60px;height:60px;background:var(--accent-light);border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;}
+.why-icon svg{width:28px;height:28px;fill:none;stroke:var(--accent);stroke-width:2;}
+.why-card h3{font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;color:var(--dark);margin-bottom:10px;text-transform:uppercase;}
+.why-card p{font-size:14px;color:var(--muted);line-height:1.7;}
+
+/* REVIEWS */
+#reviews{background:#f8fafc;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.review-card{background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 16px rgba(0,0,0,0.06);border-top:3px solid var(--accent);}
+.review-stars{color:#F59E0B;font-size:20px;letter-spacing:3px;margin-bottom:14px;}
+.review-card p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:20px;font-style:italic;}
+.reviewer-name{font-size:14px;font-weight:700;color:var(--dark);}
+.reviewer-location{font-size:13px;color:var(--muted);}
+
+/* EMERGENCY CTA */
+.emergency-cta{background:var(--dark);padding:60px 24px;}
+.emergency-cta-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+.emergency-cta h3{font-family:'Oswald',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:#fff;text-transform:uppercase;}
+.emergency-cta p{font-size:15px;color:rgba(255,255,255,0.6);margin-top:8px;}
+.btn-emergency{background:var(--accent);color:#fff;padding:16px 36px;border-radius:6px;font-size:16px;font-weight:700;text-decoration:none;white-space:nowrap;text-transform:uppercase;letter-spacing:0.05em;transition:opacity 0.2s;}
+.btn-emergency:hover{opacity:0.9;}
+
+/* CONTACT */
+#contact{background:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;}
+.contact-info-box{background:#f8fafc;border-radius:12px;padding:36px;}
+.contact-info-box h3{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--dark);margin-bottom:24px;text-transform:uppercase;}
+.contact-detail{display:flex;gap:14px;margin-bottom:22px;align-items:flex-start;}
+.contact-detail-icon{width:42px;height:42px;background:var(--accent-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-detail-icon svg{width:18px;height:18px;fill:none;stroke:var(--accent);stroke-width:2;}
+.contact-detail-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;display:block;margin-bottom:3px;}
+.contact-detail-val{font-size:15px;font-weight:700;color:var(--dark);}
+.contact-detail-val a{color:var(--dark);text-decoration:none;}
+.hours-box{background:var(--accent);border-radius:12px;padding:28px;margin-top:20px;}
+.hours-box h4{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:#fff;text-transform:uppercase;margin-bottom:16px;}
+.hours-row{display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.85);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.15);}
+.hours-row:last-child{border-bottom:none;}
+.hours-row strong{color:#fff;}
+.form-wrap{background:#f8fafc;border-radius:12px;padding:36px;}
+.form-wrap h3{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--dark);margin-bottom:8px;text-transform:uppercase;}
+.form-wrap p{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:14px;}
+.form-group label{font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:6px;font-size:14px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color 0.2s;background:#fff;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);}
+.form-group textarea{height:100px;resize:vertical;}
+.form-submit{width:100%;padding:15px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;text-transform:uppercase;letter-spacing:0.05em;transition:opacity 0.2s;}
+.form-submit:hover{opacity:0.9;}
+.form-success{display:none;background:#d1fae5;border:1px solid #6ee7b7;border-radius:8px;padding:16px;text-align:center;font-weight:600;color:#065f46;margin-top:14px;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.6);padding:60px 24px 28px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-logo{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:0.02em;}
+.footer-logo span{color:var(--accent);}
+.footer-desc{font-size:14px;line-height:1.7;margin-bottom:20px;}
+.footer-badges{display:flex;flex-wrap:wrap;gap:8px;}
+.footer-badge{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}
+.footer-col h4{font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:14px;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--accent);}
+.footer-col ul li{font-size:14px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:13px;}
+.footer-bottom a{color:var(--accent);text-decoration:none;font-weight:600;}
+.demo-tag{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;margin-right:6px;}
+
+/* DEMO BANNER */
+.demo-banner{background:var(--accent);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;}
+.demo-banner a{color:#fff;text-decoration:underline;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links,.nav-phone{display:none;}
+  .hamburger{display:flex;}
+  .hero-content{padding:80px 24px;}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
+  .services-grid{grid-template-columns:1fr;}
+  .split-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:repeat(2,1fr);}
+  .reviews-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;gap:32px;}
+  .form-row{grid-template-columns:1fr;}
+  .emergency-cta-inner{flex-direction:column;text-align:center;}
+  .trust-inner{gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Demo site built by <a href="https://wrenchdigital.ca" target="_blank">Wrench Digital</a> — wrenchdigital.ca</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>Serving Mississauga ON &amp; GTA</span>
+      <span class="topbar-sep">|</span>
+      <span>Mon-Fri 10am-8pm · Sat 9am-7pm · Sun 11am-6pm</span>
+    </div>
+    <div class="topbar-right">
+      <span>24/7 Emergency: <a href="tel:19052902335">+1 905-290-2335</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="nav-logo-text">9<span>Natural Nails & Spa</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:19052902335" class="nav-phone">
+      <div class="nav-phone-label">Call Us Now</div>
+      <div class="nav-phone-num">+1 905-290-2335</div>
+    </a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact">Get a Free Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Mississauga ON · Premium Nail Salon & Spa</div>
+    <h1 class="hero-title">
+      Natural Beauty,<br>
+      <em>Elevated Experience</em><br>
+      Pure Relaxation
+    </h1>
+    <p class="hero-sub">Mississauga's premier destination for natural nail care and luxurious spa treatments. We combine organic products with expert techniques for stunning, healthy results.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="tel:19052902335" class="btn-ghost">Call +1 905-290-2335</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Licensed & Certified</div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Serving Mississauga & GTA</div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Organic Products</div>
+      <div class="hero-trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Sterilized Equipment</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item"><div class="stat-num">5000+</div><div class="stat-label">Happy Clients</div></div>
+    <div class="stat-item"><div class="stat-num">4.9</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat-item"><div class="stat-num">8+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Licensed & Certified</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Serving Mississauga & GTA</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Organic Products</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Sterilized Equipment</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Our Signature Services</h2>
+    <p class="section-sub">Indulge in our comprehensive menu of nail and spa services designed to rejuvenate and beautify.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Natural Manicures</h3><p>Experience our signature natural manicure using organic products that nourish and strengthen your nails. Our expert technicians provide meticulous care with long-lasting, beautiful results.</p><a href="#contact" class="service-link">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <h3>Luxury Pedicures</h3><p>Treat your feet to our premium pedicure treatments featuring exfoliation, massage, and polish. Relax in our spa chairs while we pamper you with specialized foot care techniques.</p><a href="#contact" class="service-link">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3>Gel & Shellac</h3><p>Get chip-free, glossy nails that last up to three weeks with our professional gel and shellac applications. We use high-quality products that protect your natural nails while providing stunning color.</p><a href="#contact" class="service-link">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3>Nail Art & Design</h3><p>Express your unique style with custom nail art and intricate designs. From elegant French tips to trendy patterns, our talented artists bring your vision to life.</p><a href="#contact" class="service-link">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Spa Treatments</h3><p>Rejuvenate with our luxurious spa treatments including paraffin wax, aromatherapy, and hot stone massage. Each treatment is designed to relax your mind and revitalize your body.</p><a href="#contact" class="service-link">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Bridal & Events</h3><p>Look flawless on your special day with our bridal and event packages. We offer customized services to ensure you and your party look stunning from fingers to toes.</p><a href="#contact" class="service-link">Get a Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="split-grid">
+      <div class="split-img">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800" alt="About 9 Natural Nails & Spa">
+        <div class="split-img-badge">
+          <div class="split-img-badge-num">8+</div>
+          <div class="split-img-badge-text">Years Experience</div>
+        </div>
+      </div>
+      <div class="split-text">
+        <div class="section-eyebrow">About Us</div>
+        <h2 class="section-title">About 9 Natural Nails & Spa</h2>
+        <p>Welcome to 9 Natural Nails & Spa, Mississauga's trusted destination for natural nail care and luxurious spa treatments. For over 8 years, we've been dedicated to providing exceptional service in a clean, relaxing environment. Our team of licensed nail technicians combines artistry with expertise, using only premium organic products and sterilized equipment to ensure your safety and satisfaction.</p>
+        <p>We believe in enhancing your natural beauty while prioritizing the health of your nails. Our commitment to excellence, attention to detail, and personalized care has made us a favorite among clients throughout Mississauga and the GTA. Whether you're seeking a quick polish change or a full spa day, we're here to make you look and feel your absolute best.</p>
+        <div class="cred-list">
+          <div class="cred-item"><div class="cred-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Licensed & Fully Certified</div>
+          <div class="cred-item"><div class="cred-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Health Standards Compliant</div>
+          <div class="cred-item"><div class="cred-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Premium Organic Products</div>
+          <div class="cred-item"><div class="cred-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Proudly Serving Mississauga</div>
+        </div>
+        <div class="split-cta">
+          <a href="#contact" class="btn-primary">Request a Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-eyebrow">Why Choose Us</div>
+    <h2 class="section-title">Why Choose 9 Natural Nails & Spa</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Licensed & Certified</h3><p>Our team consists of fully licensed and certified nail technicians with extensive training. We maintain the highest industry standards and comply with all health and safety regulations.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Experienced Team</h3><p>With over 8 years serving Mississauga, our expert technicians bring passion and precision to every service. We stay current with the latest trends and techniques through continuous education.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Premium Products</h3><p>We exclusively use high-quality, organic products that are gentle on your nails and skin. Our commitment to natural ingredients ensures beautiful results without compromising your health.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Relaxing Atmosphere</h3><p>Step into our serene spa environment designed for your complete relaxation and comfort. From our luxurious spa chairs to our soothing ambiance, every detail enhances your experience.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="section-eyebrow">Client Reviews</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">★★★★★</div><p>"Best nail salon in Mississauga! The staff is so friendly and professional. I've been coming here for 2 years and my nails have never looked better. They really take their time and pay attention to every detail. Highly recommend!"</p><div class="reviewer-name">Sarah M.</div><div class="reviewer-location">Mississauga</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p>"Absolutely love this place! Clean, relaxing atmosphere and they use quality products. My gel manicure lasted three full weeks without chipping. The pedicure massage is heavenly. Worth every penny!"</p><div class="reviewer-name">Jennifer L.</div><div class="reviewer-location">Oakville</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p>"Found my new go-to nail salon! The technicians are skilled artists and truly care about nail health. They helped restore my damaged nails with their natural treatments. The spa chairs are so comfortable too. 5 stars!"</p><div class="reviewer-name">Priya K.</div><div class="reviewer-location">Brampton</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY CTA -->
+<div class="emergency-cta">
+  <div class="emergency-cta-inner">
+    <div>
+      <h3>HVAC Emergency? Furnace or AC Down? Call Now.</h3>
+      <p>No heat, no cooling, system failure — we respond fast, no after-hours surcharge.</p>
+    </div>
+    <a href="tel:19052902335" class="btn-emergency">Call +1 905-290-2335</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Book Your Appointment Today</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-box">
+          <h3>Contact Details</h3>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><span class="contact-detail-label">Phone</span><div class="contact-detail-val"><a href="tel:19052902335">+1 905-290-2335</a></div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><span class="contact-detail-label">Service Area</span><div class="contact-detail-val">Mississauga ON &amp; GTA</div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><span class="contact-detail-label">Hours</span><div class="contact-detail-val">Mon-Fri 10am-8pm · Sat 9am-7pm · Sun 11am-6pm</div></div>
+          </div>
+        </div>
+        <div class="hours-box">
+          <h4>Business Hours</h4>
+          <div class="hours-row"><span>Mon – Fri</span><strong>7:00am – 6:00pm</strong></div>
+          <div class="hours-row"><span>Saturday</span><strong>8:00am – 2:00pm</strong></div>
+          <div class="hours-row"><span>Sunday</span><strong>Emergency Only</strong></div>
+          <div class="hours-row"><span>Emergency Line</span><strong>24 / 7</strong></div>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <h3>Request a Free Quote</h3>
+        <p>Fill out the form and we'll get back to you within one business day.</p>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
+            <div class="form-group"><label>Phone *</label><input type="tel" placeholder="416-000-0000" required></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="john@email.com"></div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Natural Manicures</option>
+              <option>Luxury Pedicures</option>
+              <option>Gel & Shellac</option>
+              <option>Nail Art & Design</option>
+              <option>Spa Treatments</option>
+              <option>Bridal & Events</option>
+              <option>Emergency Service</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Describe the Job</label><textarea placeholder="Tell us about your heating or cooling issue..."></textarea></div>
+          <button type="submit" class="form-submit">Send Request →</button>
+          <div class="form-success" id="formSuccess">✓ Message received! We'll be in touch within one business day.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">9<span>Natural Nails & Spa</span></div>
+        <p class="footer-desc">9 Natural Nails & Spa is Mississauga's premier destination for natural nail care and luxurious spa treatments. Experience the difference of expert care in a relaxing, welcoming environment.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">Licensed</span>
+          <span class="footer-badge">Insured</span>
+          <span class="footer-badge">WSIB</span>
+          <span class="footer-badge">GTA</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Natural Manicures</li>
+          <li>Luxury Pedicures</li>
+          <li>Gel & Shellac</li>
+          <li>Nail Art & Design</li>
+          <li>Spa Treatments</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:19052902335">+1 905-290-2335</a></li>
+          <li>Mississauga ON, Ontario</li>
+          <li>Mon-Fri 10am-8pm · Sat 9am-7pm · Sun 11am-6pm</li>
+          <li>24/7 Emergency</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 9 Natural Nails & Spa · Mississauga ON — <span class="demo-tag">DEMO</span> Built by <a href="https://wrenchdigital.ca" target="_blank">Wrench Digital</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);});
+document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.toggle('open');});
+document.querySelectorAll('#mobileMenu a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open'));});
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formSuccess').style.display='block';this.reset();});
+// Set hero background
+document.querySelector('.hero-bg').style.backgroundImage = "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400')";
+</script>
+</body>
+</html>
