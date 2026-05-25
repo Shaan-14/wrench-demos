@@ -36,13 +36,11 @@ GTA_CITIES = [
 ]
 
 BUSINESS_TYPES = [
-   "nail salon" 
+    "nail salon", "barber", "hair salon",
+    "restaurant", "auto repair",
+    "landscaping", "cleaning service",
+    "plumber", "electrician", "hvac",
 ]
-
-# Drop these 5 files into your templates/ folder:
-# plumber.html, electrician.html, hvac.html, landscaping.html, cleaning_service.html
-
-# Then update your TEMPLATE_MAP in pipeline.py to this:
 
 TEMPLATE_MAP = {
     "handyman":            ("trades",           "#E07B39", "#FEF0E7"),
@@ -59,70 +57,89 @@ TEMPLATE_MAP = {
     "cleaning service":    ("cleaning_service", "#0891B2", "#ECFEFF"),
     "junk removal":        ("trades",           "#4B5563", "#F9FAFB"),
     "moving company":      ("trades",           "#7C3AED", "#F5F3FF"),
+    "nail salon":          ("cleaning_service", "#EC4899", "#FDF2F8"),
+    "barber":              ("trades",           "#1E293B", "#F8FAFC"),
+    "hair salon":          ("cleaning_service", "#7C3AED", "#F5F3FF"),
+    "restaurant":          ("trades",           "#B45309", "#FFFBEB"),
+    "auto repair":         ("trades",           "#DC2626", "#FEF2F2"),
 }
 
-# The load_template() function already handles this correctly:
-# It looks for templates/{template_name}.html
-# Falls back to templates/trades.html if not found
-# So handyman, contractor, fence, flooring, tile, painting, snow, junk, moving
-# will all still use trades.html until you build those templates too
-
 IMAGE_URLS = {
+    "nail salon": (
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop&q=80"
+    ),
+    "barber": (
+        "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&auto=format&fit=crop&q=80"
+    ),
+    "hair salon": (
+        "https://images.unsplash.com/photo-1560066984-138daaa4e4e1?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop&q=80"
+    ),
+    "restaurant": (
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop&q=80"
+    ),
+    "auto repair": (
+        "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&auto=format&fit=crop&q=80"
+    ),
     "handyman": (
         "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=800&auto=format&fit=crop&q=80"
     ),
     "landscaping": (
         "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&auto=format&fit=crop&q=80"
     ),
     "snow removal": (
         "https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=800&auto=format&fit=crop&q=80"
     ),
     "cleaning service": (
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1527515545081-5db817172677?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1527515545081-5db817172677?w=800&auto=format&fit=crop&q=80"
     ),
     "painting contractor": (
         "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&auto=format&fit=crop&q=80"
     ),
     "fence installer": (
         "https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1591955506264-3f5a6834570a?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1591955506264-3f5a6834570a?w=800&auto=format&fit=crop&q=80"
     ),
     "flooring installer": (
         "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800&auto=format&fit=crop&q=80"
     ),
     "tile installer": (
         "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop&q=80"
     ),
     "junk removal": (
         "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
     ),
     "moving company": (
         "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=800&auto=format&fit=crop&q=80"
     ),
     "plumber": (
         "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&auto=format&fit=crop&q=80"
     ),
     "electrician": (
         "https://images.unsplash.com/photo-1558402529-d2638857f87a?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=800&auto=format&fit=crop&q=80"
     ),
     "hvac": (
         "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=800&auto=format&fit=crop&q=80"
     ),
     "contractor": (
         "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ),
 }
 
@@ -141,18 +158,19 @@ def save_sent(sent):
 def check_website(url):
     if not url:
         return "no website"
-    
-    # Social media pages are not real websites
-    social = ["facebook.com", "instagram.com", "twitter.com", 
-              "yelp.com", "linkedin.com", "google.com", "maps.google"]
+
+    # Social media / directory pages are not real websites
+    social = ["facebook.com", "instagram.com", "twitter.com",
+              "yelp.com", "linkedin.com", "google.com", "maps.google",
+              "yellowpages", "homestars", "houzz", "fresha", "booksy"]
     if any(s in url.lower() for s in social):
         return "no website"
-    
+
     try:
         resp = requests.get(url, timeout=8, headers=HEADERS)
         if resp.status_code != 200:
             return "no website"
-        
+
         text = resp.text.lower()
         red_flags = [
             len(resp.text) < 2000,
@@ -168,6 +186,24 @@ def check_website(url):
         return "has website"
     except:
         return "no website"
+
+
+def google_search_has_website(business_name, city):
+    clean_city = city.replace(" ON", "").strip()
+    query = f'"{business_name}" "{clean_city}"'
+    try:
+        url = f"https://www.google.com/search?q={requests.utils.quote(query)}&num=5"
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        domains = re.findall(r'https?://([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', resp.text)
+        blocked = ["google", "facebook", "instagram", "yelp", "youtube",
+                   "twitter", "linkedin", "maps", "gstatic", "googleapis",
+                   "serpapi", "schema", "w3", "yellowpages", "homestars",
+                   "houzz", "fresha", "booksy", "nextdoor", "tripadvisor"]
+        real_sites = [d for d in domains if not any(b in d.lower() for b in blocked)]
+        return len(real_sites) > 0
+    except:
+        return False
+
 
 def find_email(business_name, city):
     for source, domain, path_key in [
@@ -220,8 +256,8 @@ def load_template(template_name):
 
 def generate_content(info, biz_type, accent_color):
     imgs = IMAGE_URLS.get(biz_type.lower(), (
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400",
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&auto=format&fit=crop"
     ))
 
     prompt = f"""You are a professional copywriter. Fill in content for a {biz_type} business website.
@@ -235,56 +271,56 @@ Return ONLY valid JSON, no markdown:
 
 {{
   "BUSINESS_NAME": "{info['name']}",
-  "TAGLINE": "[catchy tagline]",
+  "TAGLINE": "[catchy tagline specific to {biz_type}]",
   "ACCENT_COLOR": "{accent_color}",
-  "ACCENT_LIGHT": "[very light version of {accent_color}]",
+  "ACCENT_LIGHT": "[very light tint of {accent_color}]",
   "HERO_IMAGE": "{imgs[0]}",
   "ABOUT_IMAGE": "{imgs[1]}",
   "LOGO_FIRST": "[first word of business name]",
-  "LOGO_SECOND": "[rest of name]",
+  "LOGO_SECOND": "[remaining words]",
   "PHONE": "{info.get('phone', 'Call for a Free Quote')}",
-  "PHONE_RAW": "[digits only]",
+  "PHONE_RAW": "[digits only from phone number]",
   "CITY": "{info['city']}",
-  "BUSINESS_TYPE": "[professional title]",
-  "HOURS": "Mon-Fri 7am-6pm · Sat 8am-2pm",
-  "HERO_LINE_1": "[2-3 word headline]",
+  "BUSINESS_TYPE": "[professional title e.g. Licensed Plumber, Nail Technician]",
+  "HOURS": "Mon-Fri 9am-7pm · Sat-Sun 10am-6pm",
+  "HERO_LINE_1": "[2-3 word bold headline]",
   "HERO_LINE_2": "[2-3 word accent line]",
-  "HERO_LINE_3": "[2-3 word closing]",
-  "HERO_SUB": "[1-2 sentence description]",
-  "TRUST_1": "Licensed & Insured",
+  "HERO_LINE_3": "[2-3 word closing line]",
+  "HERO_SUB": "[1-2 sentence description of what this business does for GTA customers]",
+  "TRUST_1": "[trust point 1]",
   "TRUST_2": "Serving {info['city']} & GTA",
-  "TRUST_3": "Free Estimates",
+  "TRUST_3": "Free Consultations",
   "TRUST_4": "No Hidden Fees",
-  "STAT_1_N": "200+", "STAT_1_L": "Jobs Completed",
+  "STAT_1_N": "500+", "STAT_1_L": "Happy Clients",
   "STAT_2_N": "4.9",  "STAT_2_L": "Google Rating",
   "STAT_3_N": "5+",   "STAT_3_L": "Years Experience",
   "STAT_4_N": "100%", "STAT_4_L": "Satisfaction",
-  "SERVICES_TITLE": "[services headline]",
-  "SERVICES_SUB": "[1 sentence]",
-  "S1_TITLE": "[service 1]", "S1_DESC": "[2 sentences]",
-  "S2_TITLE": "[service 2]", "S2_DESC": "[2 sentences]",
-  "S3_TITLE": "[service 3]", "S3_DESC": "[2 sentences]",
-  "S4_TITLE": "[service 4]", "S4_DESC": "[2 sentences]",
-  "S5_TITLE": "[service 5]", "S5_DESC": "[2 sentences]",
-  "S6_TITLE": "[service 6]", "S6_DESC": "[2 sentences]",
+  "SERVICES_TITLE": "[services headline for {biz_type}]",
+  "SERVICES_SUB": "[1 sentence describing range of services]",
+  "S1_TITLE": "[service 1 specific to {biz_type}]", "S1_DESC": "[2 sentences]",
+  "S2_TITLE": "[service 2 specific to {biz_type}]", "S2_DESC": "[2 sentences]",
+  "S3_TITLE": "[service 3 specific to {biz_type}]", "S3_DESC": "[2 sentences]",
+  "S4_TITLE": "[service 4 specific to {biz_type}]", "S4_DESC": "[2 sentences]",
+  "S5_TITLE": "[service 5 specific to {biz_type}]", "S5_DESC": "[2 sentences]",
+  "S6_TITLE": "[service 6 specific to {biz_type}]", "S6_DESC": "[2 sentences]",
   "ABOUT_TITLE": "[about headline]",
-  "ABOUT_P1": "[paragraph about business]",
-  "ABOUT_P2": "[paragraph about values]",
-  "CRED_1": "Licensed & Fully Insured",
-  "CRED_2": "WSIB Registered",
-  "CRED_3": "$2M Liability Coverage",
+  "ABOUT_P1": "[2-3 sentence paragraph about this {biz_type} business in {info['city']}]",
+  "ABOUT_P2": "[2-3 sentence paragraph about their values and commitment]",
+  "CRED_1": "[relevant credential for {biz_type}]",
+  "CRED_2": "[relevant credential for {biz_type}]",
+  "CRED_3": "[relevant credential for {biz_type}]",
   "CRED_4": "Proudly Serving the GTA",
   "WHY_TITLE": "[why choose us headline]",
-  "W1_TITLE": "Licensed & Insured", "W1_DESC": "[2 sentences]",
-  "W2_TITLE": "Experienced Team",   "W2_DESC": "[2 sentences]",
-  "W3_TITLE": "Transparent Pricing","W3_DESC": "[2 sentences]",
-  "W4_TITLE": "Fast Response",      "W4_DESC": "[2 sentences]",
+  "W1_TITLE": "[reason 1]", "W1_DESC": "[2 sentences]",
+  "W2_TITLE": "[reason 2]", "W2_DESC": "[2 sentences]",
+  "W3_TITLE": "[reason 3]", "W3_DESC": "[2 sentences]",
+  "W4_TITLE": "[reason 4]", "W4_DESC": "[2 sentences]",
   "REVIEWS_TITLE": "[reviews headline]",
-  "R1_TEXT": "[realistic GTA review]", "R1_NAME": "[Name L.]", "R1_LOCATION": "[GTA city]",
-  "R2_TEXT": "[realistic GTA review]", "R2_NAME": "[Name L.]", "R2_LOCATION": "[GTA city]",
-  "R3_TEXT": "[realistic GTA review]", "R3_NAME": "[Name L.]", "R3_LOCATION": "[GTA city]",
-  "CONTACT_TITLE": "[contact headline]",
-  "FOOTER_DESC": "[1-2 sentence footer]"
+  "R1_TEXT": "[realistic GTA review for {biz_type}]", "R1_NAME": "[First Name L.]", "R1_LOCATION": "[GTA city]",
+  "R2_TEXT": "[realistic GTA review for {biz_type}]", "R2_NAME": "[First Name L.]", "R2_LOCATION": "[GTA city]",
+  "R3_TEXT": "[realistic GTA review for {biz_type}]", "R3_NAME": "[First Name L.]", "R3_LOCATION": "[GTA city]",
+  "CONTACT_TITLE": "[contact section headline]",
+  "FOOTER_DESC": "[1-2 sentence footer description]"
 }}"""
 
     message = claude.messages.create(
@@ -326,7 +362,6 @@ def build_and_deploy(lead):
     if not variables:
         return None
 
-    # Force phone from lead data
     if lead.get("phone"):
         variables["PHONE"] = lead["phone"]
         variables["PHONE_RAW"] = ''.join(filter(str.isdigit, lead["phone"]))
@@ -349,7 +384,7 @@ def build_and_deploy(lead):
     return f"https://demos.wrenchdigital.ca/{slug}", slug
 
 def deploy_all():
-    print("   🚀 Deploying all demos to Vercel...")
+    print("   🚀 Deploying all demos...")
     try:
         subprocess.run(["git", "add", "."], check=True, capture_output=True)
         subprocess.run(["git", "commit", "-m", "Pipeline batch deploy"], check=True, capture_output=True)
@@ -358,7 +393,7 @@ def deploy_all():
     except subprocess.CalledProcessError as e:
         print(f"   ⚠️  Deploy failed: {e}")
 
-# ── Email & Text Generator ────────────────────────────────────────────────────
+# ── Outreach Generator ────────────────────────────────────────────────────────
 
 def generate_outreach(lead, demo_url):
     prompt = f"""Write a cold outreach email AND a text message for a local business with no website.
@@ -431,8 +466,12 @@ def main():
                 website = r.get("website", "")
                 status = check_website(website)
                 if status == "has website":
-                        continue
-# "website very poor" still gets added as a lead — it's a valid target
+                    continue
+
+                # Double check with Google search
+                if google_search_has_website(name, city):
+                    print(f"   ⚠️  Skipping {name} — found website via Google")
+                    continue
 
                 phone = r.get("phone", r.get("formatted_phone_number", ""))
                 address = r.get("address", "")
@@ -441,7 +480,6 @@ def main():
 
                 print(f"   🎯 {name} — {status}")
 
-                # Try to find email
                 email, source = find_email(name, city)
                 if email:
                     print(f"      ✉️  Email: {email} ({source})")
@@ -472,7 +510,6 @@ def main():
 
     print(f"\n🏗️  Step 2: Building {len(all_leads)} demo websites...\n")
 
-    results = []
     for lead in all_leads:
         print(f"   Building demo for {lead['name']}...")
         result = build_and_deploy(lead)
@@ -485,7 +522,6 @@ def main():
             print(f"   ❌ Failed to build demo for {lead['name']}")
         time.sleep(1)
 
-    # Deploy all at once
     deploy_all()
 
     print(f"\n✉️  Step 3: Generating outreach messages...\n")
@@ -500,7 +536,7 @@ def main():
         lead["text_message"] = outreach.get("text_message", "")
         time.sleep(0.5)
 
-    # Save CSV
+    # Save CSV and auto open
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     csv_file = f"pipeline_{timestamp}.csv"
     fields = ["name", "type", "city", "phone", "email", "website_status",
@@ -511,6 +547,10 @@ def main():
         writer.writeheader()
         writer.writerows(all_leads)
 
+    import sys
+    if sys.platform == "win32":
+        os.startfile(csv_file)
+
     print(f"\n{'='*60}")
     print(f"✅ Pipeline complete!")
     print(f"   {len(all_leads)} leads found")
@@ -518,7 +558,7 @@ def main():
     print(f"   {len([l for l in all_leads if l.get('email')])} emails found")
     print(f"   Saved to: {csv_file}")
     print(f"{'='*60}")
-    print(f"\n📋 Open {csv_file} to see all leads, demo URLs, and messages ready to send!")
+    print(f"\n📋 CSV opened automatically — check it for all leads, demos, and messages!")
 
 if __name__ == "__main__":
     main()
