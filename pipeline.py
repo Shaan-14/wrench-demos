@@ -36,28 +36,37 @@ GTA_CITIES = [
 ]
 
 BUSINESS_TYPES = [
-    "handyman", "landscaping", "snow removal", "cleaning service",
-    "painting contractor", "fence installer", "flooring installer",
-    "tile installer", "junk removal", "moving company",
-    "plumber", "electrician", "hvac", "contractor"
+   "landscaping", "cleaning",
+    "plumber", "electrician", "hvac",
 ]
 
+# Drop these 5 files into your templates/ folder:
+# plumber.html, electrician.html, hvac.html, landscaping.html, cleaning_service.html
+
+# Then update your TEMPLATE_MAP in pipeline.py to this:
+
 TEMPLATE_MAP = {
-    "handyman":            ("trades",      "#E07B39", "#FEF0E7"),
-    "contractor":          ("trades",      "#1D4ED8", "#EFF6FF"),
-    "plumber":             ("trades",      "#0369A1", "#E0F2FE"),
-    "electrician":         ("trades",      "#D97706", "#FFFBEB"),
-    "hvac":                ("trades",      "#0F766E", "#F0FDFA"),
-    "fence installer":     ("trades",      "#4D7C0F", "#F7FEE7"),
-    "flooring installer":  ("trades",      "#7C3AED", "#F5F3FF"),
-    "tile installer":      ("trades",      "#B45309", "#FFFBEB"),
-    "painting contractor": ("trades",      "#DC2626", "#FEF2F2"),
-    "landscaping":         ("trades",      "#16A34A", "#F0FDF4"),
-    "snow removal":        ("trades",      "#0284C7", "#E0F2FE"),
-    "cleaning service":    ("trades",      "#0891B2", "#ECFEFF"),
-    "junk removal":        ("trades",      "#4B5563", "#F9FAFB"),
-    "moving company":      ("trades",      "#7C3AED", "#F5F3FF"),
+    "handyman":            ("trades",           "#E07B39", "#FEF0E7"),
+    "contractor":          ("trades",           "#1D4ED8", "#EFF6FF"),
+    "plumber":             ("plumber",          "#0369A1", "#E0F2FE"),
+    "electrician":         ("electrician",      "#D97706", "#FFFBEB"),
+    "hvac":                ("hvac",             "#0F766E", "#F0FDFA"),
+    "fence installer":     ("trades",           "#4D7C0F", "#F7FEE7"),
+    "flooring installer":  ("trades",           "#7C3AED", "#F5F3FF"),
+    "tile installer":      ("trades",           "#B45309", "#FFFBEB"),
+    "painting contractor": ("trades",           "#DC2626", "#FEF2F2"),
+    "landscaping":         ("landscaping",      "#16A34A", "#F0FDF4"),
+    "snow removal":        ("trades",           "#0284C7", "#E0F2FE"),
+    "cleaning service":    ("cleaning_service", "#0891B2", "#ECFEFF"),
+    "junk removal":        ("trades",           "#4B5563", "#F9FAFB"),
+    "moving company":      ("trades",           "#7C3AED", "#F5F3FF"),
 }
+
+# The load_template() function already handles this correctly:
+# It looks for templates/{template_name}.html
+# Falls back to templates/trades.html if not found
+# So handyman, contractor, fence, flooring, tile, painting, snow, junk, moving
+# will all still use trades.html until you build those templates too
 
 IMAGE_URLS = {
     "handyman":            ("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
