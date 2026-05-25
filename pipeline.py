@@ -69,20 +69,62 @@ TEMPLATE_MAP = {
 # will all still use trades.html until you build those templates too
 
 IMAGE_URLS = {
-    "handyman":            ("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
-    "landscaping":         ("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400", "https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=800"),
-    "snow removal":        ("https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800"),
-    "cleaning service":    ("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400", "https://images.unsplash.com/photo-1527515545081-5db817172677?w=800"),
-    "painting contractor": ("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1400", "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800"),
-    "fence installer":     ("https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=1400", "https://images.unsplash.com/photo-1558618047-f7f85e213d58?w=800"),
-    "flooring installer":  ("https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1400", "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800"),
-    "tile installer":      ("https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1400", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800"),
-    "junk removal":        ("https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1400", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"),
-    "moving company":      ("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400", "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=800"),
-    "plumber":             ("https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400", "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800"),
-    "electrician":         ("https://images.unsplash.com/photo-1558402529-d2638857f87a?w=1400", "https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=800"),
-    "hvac":                ("https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1400", "https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=800"),
-    "contractor":          ("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400", "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"),
+    "handyman": (
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop"
+    ),
+    "landscaping": (
+        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&auto=format&fit=crop"
+    ),
+    "snow removal": (
+        "https://images.unsplash.com/photo-1547754980-3df97fed72a8?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=800&auto=format&fit=crop"
+    ),
+    "cleaning service": (
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1527515545081-5db817172677?w=800&auto=format&fit=crop"
+    ),
+    "painting contractor": (
+        "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&auto=format&fit=crop"
+    ),
+    "fence installer": (
+        "https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1591955506264-3f5a6834570a?w=800&auto=format&fit=crop"
+    ),
+    "flooring installer": (
+        "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800&auto=format&fit=crop"
+    ),
+    "tile installer": (
+        "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop"
+    ),
+    "junk removal": (
+        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop"
+    ),
+    "moving company": (
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=800&auto=format&fit=crop"
+    ),
+    "plumber": (
+        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&auto=format&fit=crop"
+    ),
+    "electrician": (
+        "https://images.unsplash.com/photo-1558402529-d2638857f87a?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1621905251189-08b45249ff78?w=800&auto=format&fit=crop"
+    ),
+    "hvac": (
+        "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1581094480099-83d51516b92e?w=800&auto=format&fit=crop"
+    ),
+    "contractor": (
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop"
+    ),
 }
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
