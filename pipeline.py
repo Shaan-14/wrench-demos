@@ -57,9 +57,9 @@ TEMPLATE_MAP = {
     "cleaning service":    ("cleaning_service", "#0891B2", "#ECFEFF"),
     "junk removal":        ("trades",           "#4B5563", "#F9FAFB"),
     "moving company":      ("trades",           "#7C3AED", "#F5F3FF"),
-    "nail salon":          ("cleaning_service", "#EC4899", "#FDF2F8"),
-    "barber":              ("trades",           "#1E293B", "#F8FAFC"),
-    "hair salon":          ("cleaning_service", "#7C3AED", "#F5F3FF"),
+    "nail salon":          ("nail_salon", "#EC4899", "#FDF2F8"),
+    "barber":              ("barber",           "#1E293B", "#F8FAFC"),
+    "hair salon":          ("hair_salon", "#7C3AED", "#F5F3FF"),
     "restaurant":          ("trades",           "#B45309", "#FFFBEB"),
     "auto repair":         ("trades",           "#DC2626", "#FEF2F2"),
 }
