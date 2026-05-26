@@ -36,8 +36,7 @@ GTA_CITIES = [
 ]
 
 BUSINESS_TYPES = [
-    "nail salon", "barber", "hair salon",
-    "restaurant", "auto repair",
+    "nail salon", "barber", "hair salon", "auto repair",
     "landscaping", "cleaning service",
     "plumber", "electrician", "hvac",
 ]
@@ -60,7 +59,7 @@ TEMPLATE_MAP = {
     "nail salon":          ("nail_salon", "#EC4899", "#FDF2F8"),
     "barber":              ("barber",           "#1E293B", "#F8FAFC"),
     "hair salon":          ("hair_salon", "#7C3AED", "#F5F3FF"),
-    "restaurant":          ("trades",           "#B45309", "#FFFBEB"),
+    "restaurant":          ("restaurant",           "#B45309", "#FFFBEB"),
     "auto repair":         ("trades",           "#DC2626", "#FEF2F2"),
 }
 
