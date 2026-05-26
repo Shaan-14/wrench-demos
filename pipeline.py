@@ -498,7 +498,9 @@ def main():
                     "reviews": reviews,
                     "website_status": status,
                 })
-
+                sent.add(name)
+                save_sent(sent)
+                
                 print(f"      ✅ Lead {len(all_leads)}/{target}\n")
 
         if len(all_leads) >= target:
