@@ -330,10 +330,23 @@ Return ONLY valid JSON, no markdown:
     )
     raw = re.sub(r'^```[a-z]*\n?', '', message.content[0].text.strip())
     raw = re.sub(r'\n?```$', '', raw)
-    try:
-        return json.loads(raw)
-    except:
-        return None
+    for attempt in range(3):
+        try:
+            return json.loads(raw)
+        except:
+            if attempt < 2:
+                print(f"   ⚠️ JSON parse failed, retrying...")
+                time.sleep(2)
+                message = claude.messages.create(
+                    model="claude-sonnet-4-5",
+                    max_tokens=3000,
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                raw = re.sub(r'^```[a-z]*\n?', '', message.content[0].text.strip())
+                raw = re.sub(r'\n?```$', '', raw)
+            else:
+                print(f"   ❌ JSON parse failed after 3 attempts")
+                return None
 
 def fill_template(template_html, variables):
     result = template_html
@@ -500,7 +513,7 @@ def main():
                 })
                 sent.add(name)
                 save_sent(sent)
-                
+
                 print(f"      ✅ Lead {len(all_leads)}/{target}\n")
 
         if len(all_leads) >= target:
