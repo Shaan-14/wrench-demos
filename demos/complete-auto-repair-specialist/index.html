@@ -7,10 +7,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+
+  html, body{
+  overflow-x:hidden;
+  width:100%;
+}
+
+img{
+  max-width:100%;
+}
+
+section,
+div{
+  max-width:100%;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--accent:#DC2626;--accent-light:#FEE2E2;--dark:#0a1628;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:#fff;}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;}
 
 /* TOP BAR */
 .topbar{background:var(--dark);color:#fff;padding:9px 24px;font-size:13px;}
@@ -157,10 +171,10 @@ section{padding:88px 24px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .form-group{margin-bottom:14px;}
 .form-group label{font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:6px;font-size:14px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color 0.2s;background:#fff;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:6px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;background:#fff;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);}
 .form-group textarea{height:100px;resize:vertical;}
-.form-submit{width:100%;padding:15px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Source Sans 3',sans-serif;text-transform:uppercase;letter-spacing:0.05em;transition:opacity 0.2s;}
+.form-submit{width:100%;padding:15px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.05em;transition:opacity 0.2s;}
 .form-submit:hover{opacity:0.9;}
 .form-success{display:none;background:#d1fae5;border:1px solid #6ee7b7;border-radius:8px;padding:16px;text-align:center;font-weight:600;color:#065f46;margin-top:14px;}
 
@@ -202,6 +216,36 @@ footer{background:var(--dark);color:rgba(255,255,255,0.6);padding:60px 24px 28px
   .form-row{grid-template-columns:1fr;}
   .emergency-cta-inner{flex-direction:column;text-align:center;}
   .trust-inner{gap:20px;}
+}
+
+.hero-title{
+  font-size:42px;
+  line-height:1.05;
+}
+
+.hero-sub{
+  font-size:15px;
+}
+
+.topbar-inner{
+  justify-content:center;
+  text-align:center;
+}
+
+.topbar-left{
+  justify-content:center;
+}
+
+.nav-logo-text{
+  font-size:16px;
+}
+
+.stat-num{
+  font-size:32px;
+}
+
+.why-grid{
+  grid-template-columns:1fr;
 }
 </style>
 </head>
@@ -396,8 +440,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.6);padding:60px 24px 28px
 <div class="emergency-cta">
   <div class="emergency-cta-inner">
     <div>
-      <h3>HVAC Emergency? Furnace or AC Down? Call Now.</h3>
-      <p>No heat, no cooling, system failure — we respond fast, no after-hours surcharge.</p>
+      <h3>Car Trouble? Need Mobile Auto Repair? Call Now.</h3>
+      <p>Dead battery, brake issues, no-start problems, diagnostics & more — we come to you anywhere in Mississauga & the GTA.</p>
     </div>
     <a href="tel:16475307760" class="btn-emergency">Call +1 647-530-7760</a>
   </div>
@@ -455,7 +499,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.6);padding:60px 24px 28px
               <option>Emergency Service</option>
             </select>
           </div>
-          <div class="form-group"><label>Describe the Job</label><textarea placeholder="Tell us about your heating or cooling issue..."></textarea></div>
+          <div class="form-group"><label>Describe the Job</label><textarea placeholder="Tell us about your vehicle issue or the service you need..."></textarea></div>
           <button type="submit" class="form-submit">Send Request →</button>
           <div class="form-success" id="formSuccess">✓ Message received! We'll be in touch within one business day.</div>
         </form>
