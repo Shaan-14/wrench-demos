@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maple Ridge Roofing — Protect Your Home with Premium Roofing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ac:#455a64;
+  --ac2:#263238;
+  --dark:#0a0a0a;
+  --text:#1a1a1a;
+  --muted:#6b7280;
+  --light:#f9fafb;
+  --border:#e5e7eb;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
+
+/* DEMO BANNER */
+.demo-banner{background:var(--dark);color:rgba(255,255,255,0.7);text-align:center;padding:10px 20px;font-size:11px;letter-spacing:0.05em;}
+.demo-banner a{color:var(--ac);text-decoration:none;font-weight:600;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:70px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
+nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 1px 20px rgba(0,0,0,0.05);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);text-decoration:none;transition:color 0.3s;}
+nav.scrolled .nav-logo{color:var(--dark);}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.8);font-size:13px;font-weight:500;letter-spacing:0.03em;transition:color 0.2s;}
+nav.scrolled .nav-links a{color:var(--muted);}
+.nav-links a:hover{color:var(--white);}
+nav.scrolled .nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--ac);color:var(--white);padding:10px 22px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;letter-spacing:0.02em;}
+.nav-cta:hover{background:var(--ac2);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:24px;height:1.5px;background:var(--white);border-radius:2px;transition:background 0.3s;}
+nav.scrolled .hamburger span{background:var(--dark);}
+.mobile-menu{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--border);padding:24px 48px;gap:0;box-shadow:0 8px 30px rgba(0,0,0,0.08);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{text-decoration:none;color:var(--text);font-size:15px;font-weight:500;padding:14px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{background:var(--ac);color:var(--white);text-align:center;padding:14px;border-radius:6px;border:none;margin-top:12px;font-weight:600;}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;overflow:hidden;}
+.hero-img{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=1600&q=80');background-size:cover;background-position:center;transform:scale(1.05);transition:transform 8s ease;}
+.hero-img.loaded{transform:scale(1);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.4) 60%,rgba(0,0,0,0.2) 100%);}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 48px;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);padding:8px 16px;border-radius:100px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:28px;}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,82px);font-weight:800;line-height:1.05;color:var(--white);margin-bottom:20px;max-width:700px;}
+.hero h1 em{color:var(--ac);font-style:italic;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.72);max-width:480px;line-height:1.75;margin-bottom:40px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:var(--white);padding:15px 32px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;letter-spacing:0.02em;}
+.btn-primary:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);padding:15px 32px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.4);transition:all 0.2s;}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7);}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent);animation:scrollLine 2s ease infinite;}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* STATS BAR */
+.stats-bar{background:var(--dark);padding:48px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.stat-item{text-align:center;padding:0 24px;border-right:1px solid rgba(255,255,255,0.08);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--ac);line-height:1;margin-bottom:8px;}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;font-weight:500;}
+
+/* SECTIONS */
+section{padding:96px 48px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ac);margin-bottom:16px;}
+.section-tag::before{content:'';width:20px;height:2px;background:var(--ac);}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,50px);font-weight:700;line-height:1.15;color:var(--dark);margin-bottom:16px;}
+.section-title em{color:var(--ac);font-style:italic;}
+.section-sub{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:60px;font-weight:300;}
+
+/* SERVICES */
+#services{background:var(--light);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:16px;overflow:hidden;}
+.service-card{background:var(--white);padding:40px 32px;transition:all 0.25s;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.service-card:hover{background:var(--white);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.08);z-index:1;}
+.service-card:hover::before{transform:scaleX(1);}
+.service-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--border);line-height:1;margin-bottom:20px;transition:color 0.3s;}
+.service-card:hover .service-num{color:var(--ac);}
+.service-card h3{font-size:17px;font-weight:600;color:var(--dark);margin-bottom:10px;}
+.service-card p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px;font-weight:300;}
+.service-arrow{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ac);text-decoration:none;transition:gap 0.2s;}
+.service-arrow:hover{gap:10px;}
+
+/* ABOUT */
+#about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img{width:100%;height:540px;object-fit:cover;border-radius:16px;display:block;}
+.about-badge{position:absolute;bottom:-24px;right:-24px;background:var(--dark);color:var(--white);padding:24px 28px;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.2);}
+.about-badge-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--ac);line-height:1;}
+.about-badge-text{font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;font-weight:500;}
+.about-text .section-sub{margin-bottom:32px;}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:36px;}
+.cred-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--text);}
+.cred-dot{width:8px;height:8px;border-radius:50%;background:var(--ac);flex-shrink:0;}
+
+/* WHY */
+#why{background:var(--dark);padding:96px 48px;}
+#why .section-title{color:var(--white);}
+#why .section-sub{color:rgba(255,255,255,0.5);}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;}
+.why-card{background:rgba(255,255,255,0.03);padding:40px 28px;transition:background 0.2s;}
+.why-card:hover{background:rgba(255,255,255,0.06);}
+.why-icon{width:44px;height:44px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:20px;}
+.why-card h3{font-size:16px;font-weight:600;color:var(--white);margin-bottom:10px;}
+.why-card p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;font-weight:300;}
+
+/* REVIEWS */
+#reviews{background:var(--light);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.review-card{background:var(--white);border-radius:14px;padding:36px;border:1px solid var(--border);transition:all 0.2s;position:relative;}
+.review-card:hover{border-color:var(--ac);box-shadow:0 8px 30px rgba(0,0,0,0.06);transform:translateY(-2px);}
+.review-stars{display:flex;gap:3px;margin-bottom:18px;}
+.review-stars span{color:var(--ac);font-size:15px;}
+.review-card blockquote{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:24px;font-weight:300;font-style:italic;}
+.reviewer{display:flex;align-items:center;gap:12px;}
+.reviewer-av{width:38px;height:38px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--white);}
+.reviewer-name{font-size:13px;font-weight:600;color:var(--dark);}
+.reviewer-loc{font-size:12px;color:var(--muted);margin-top:1px;}
+
+/* CTA BAND */
+.cta-band{background:var(--ac);padding:64px 48px;}
+.cta-band-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);font-weight:700;color:var(--white);}
+.cta-band p{font-size:15px;color:rgba(255,255,255,0.75);margin-top:6px;font-weight:300;}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--ac2);padding:15px 32px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+.btn-white:hover{background:rgba(255,255,255,0.9);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.15);}
+
+/* CONTACT */
+#contact{background:var(--white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--dark);margin-bottom:28px;}
+.contact-detail{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.contact-icon{width:42px;height:42px;background:var(--light);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-icon svg{width:17px;height:17px;stroke:var(--ac);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.contact-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;display:block;margin-bottom:3px;}
+.contact-val{font-size:14px;font-weight:600;color:var(--dark);}
+.contact-val a{color:var(--dark);text-decoration:none;}
+.hours-card{background:var(--light);border-radius:14px;padding:24px;margin-top:28px;}
+.hours-card h4{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em;}
+.hours-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--border);}
+.hours-row:last-child{border-bottom:none;}
+.hours-row strong{color:var(--text);font-weight:500;}
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:44px;}
+.form-card h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.form-card p{font-size:14px;color:var(--muted);margin-bottom:28px;font-weight:300;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:14px;}
+.form-group label{font-size:12px;font-weight:600;color:var(--text);display:block;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.06em;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:var(--white);color:var(--text);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(0,0,0,0.05);}
+.form-group textarea{height:110px;resize:vertical;}
+.form-submit{width:100%;padding:15px;background:var(--dark);color:var(--white);border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;letter-spacing:0.02em;}
+.form-submit:hover{background:var(--ac);transform:translateY(-1px);}
+.form-success{display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:16px;text-align:center;font-weight:500;color:#166534;margin-top:14px;font-size:14px;}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:64px 48px 28px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:14px;}
+.footer-desc{font-size:14px;line-height:1.8;font-weight:300;}
+.footer-col h4{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:18px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li,.footer-col ul li a{font-size:14px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;font-weight:300;}
+.footer-col ul li a:hover{color:var(--ac);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;}
+.footer-bottom a{color:var(--ac);text-decoration:none;font-weight:500;}
+.demo-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);font-size:11px;font-weight:500;padding:4px 10px;border-radius:100px;border:1px solid rgba(255,255,255,0.08);margin-right:8px;}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.reveal-delay-4{transition-delay:0.4s;}
+.reveal-delay-5{transition-delay:0.5s;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .mobile-menu{padding:20px 24px;}
+  .hero-content{padding:0 24px;}
+  section{padding:72px 24px;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:20px;}
+  .stat-item:last-child{border-bottom:none;}
+  .services-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .about-badge{bottom:16px;right:16px;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .cta-band-inner{flex-direction:column;text-align:center;}
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
+  .footer-top{grid-template-columns:1fr;gap:32px;}
+  .form-row{grid-template-columns:1fr;}
+  .creds{grid-template-columns:1fr;}
+  .stats-bar{padding:48px 24px;}
+  .cta-band{padding:48px 24px;}
+  footer{padding:48px 24px 24px;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  ✦ Demo site — Built by <a href="https://wrenchdigital.ca" target="_blank">Wrench Digital</a> &nbsp;·&nbsp; Contact us to get your own
+</div>
+
+<nav id="nav">
+  <a href="#home" class="nav-logo">Maple<span style="color:var(--ac)">Ridge Roofing</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact">Get a Quote</a>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-img" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Mississauga, ON &nbsp;·&nbsp; roofing</div>
+    <h1>Superior Roofing Solutions for Mississauga Homes<br><em>Built to Last, Designed to Impress</em></h1>
+    <p class="hero-sub">Maple Ridge Roofing delivers expert roof installation, repair, and maintenance for residential and commercial properties across Mississauga. With over a decade of experience and a commitment to quality craftsmanship, we're your trusted local roofing partner.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal"><div class="stat-num" data-count="850">0</div><div class="stat-label">Projects Completed</div></div>
+    <div class="stat-item reveal reveal-delay-1"><div class="stat-num" data-count="15">0</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-item reveal reveal-delay-2"><div class="stat-num" data-count="98">0</div><div class="stat-label">Client Satisfaction</div></div>
+    <div class="stat-item reveal reveal-delay-3"><div class="stat-num" data-count="247">0</div><div class="stat-label">Emergency Service</div></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-tag">What We Do</div></div>
+    <h2 class="section-title reveal">Our Services</h2>
+    <p class="section-sub reveal">From new installations to emergency repairs, Maple Ridge Roofing provides comprehensive roofing solutions tailored to every home and budget in Mississauga.</p>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-num">01</div><h3>Roof Installation</h3><p>Professional installation of shingles, metal, and flat roofs using premium materials. We ensure proper ventilation and durability for long-lasting protection.</p><a href="#contact" class="service-arrow">Get Quote →</a></div>
+      <div class="service-card reveal reveal-delay-1"><div class="service-num">02</div><h3>Roof Repair</h3><p>Fast, reliable repairs for leaks, damage, and wear. Our technicians diagnose issues quickly and fix them right the first time.</p><a href="#contact" class="service-arrow">Get Quote →</a></div>
+      <div class="service-card reveal reveal-delay-2"><div class="service-num">03</div><h3>Roof Replacement</h3><p>Complete roof replacement services with minimal disruption to your home. We handle removal, disposal, and installation with expert precision.</p><a href="#contact" class="service-arrow">Get Quote →</a></div>
+      <div class="service-card reveal reveal-delay-3"><div class="service-num">04</div><h3>Inspections & Maintenance</h3><p>Regular roof inspections catch problems early and extend your roof's lifespan. We provide detailed reports and preventative maintenance plans.</p><a href="#contact" class="service-arrow">Get Quote →</a></div>
+      <div class="service-card reveal reveal-delay-4"><div class="service-num">05</div><h3>Gutter Services</h3><p>Installation and cleaning of gutters and downspouts to protect your home's foundation. Includes leaf guards and repairs.</p><a href="#contact" class="service-arrow">Get Quote →</a></div>
+      <div class="service-card reveal reveal-delay-5"><div class="service-num">06</div><h3>Storm Damage Repair</h3><p>Emergency response for hail, wind, and weather damage. We work with insurance companies to streamline your claims process.</p><a href="#contact" class="service-arrow">Get Quote →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="About Maple Ridge Roofing" class="about-img">
+        <div class="about-badge"><div class="about-badge-num">98%</div><div class="about-badge-text">Client Satisfaction</div></div>
+      </div>
+      <div class="about-text">
+        <div class="reveal"><div class="section-tag">Our Story</div></div>
+        <h2 class="section-title reveal">About <em>Maple Ridge</em> Roofing</h2>
+        <p class="section-sub reveal">Maple Ridge Roofing has been protecting Mississauga homes and businesses since 2009. Our team of licensed, insured professionals is dedicated to delivering exceptional roofing solutions with integrity, quality, and attention to detail.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:28px;font-weight:300;" class="reveal">We believe in transparent communication, fair pricing, and customer satisfaction above all else. Every project receives personalized care, from the initial consultation through final inspection, ensuring your roof investment is protected for decades to come.</p>
+        <div class="creds reveal">
+          <div class="cred-item"><div class="cred-dot"></div>Licensed & Insured</div>
+          <div class="cred-item"><div class="cred-dot"></div>15+ Years Experience</div>
+          <div class="cred-item"><div class="cred-dot"></div>Free Estimates</div>
+          <div class="cred-item"><div class="cred-dot"></div>Satisfaction Guaranteed</div>
+        </div>
+        <a href="#contact" class="btn-primary reveal">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-tag" style="color:rgba(255,255,255,0.5);">Why Us</div></div>
+    <h2 class="section-title reveal">Why Choose Maple Ridge Roofing</h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,0.45);">Local expertise, premium quality, and customer-focused service</p>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">🏠</div><h3>Local Experts</h3><p>We know Mississauga's climate and building codes inside-out. Our team has served this community for over 15 years with proven results.</p></div>
+      <div class="why-card reveal reveal-delay-1"><div class="why-icon">⭐</div><h3>Quality Materials</h3><p>We use only premium roofing materials from trusted manufacturers, backed by industry-leading warranties.</p></div>
+      <div class="why-card reveal reveal-delay-2"><div class="why-icon">💰</div><h3>Transparent Pricing</h3><p>Free detailed estimates with no hidden fees. We provide honest assessments and work within your budget.</p></div>
+      <div class="why-card reveal reveal-delay-3"><div class="why-icon">🔧</div><h3>Expert Craftsmanship</h3><p>Our licensed technicians deliver precision workmanship on every job, ensuring longevity and protection for your property.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-tag">Reviews</div></div>
+    <h2 class="section-title reveal">What Our Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card reveal"><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><blockquote>Maple Ridge Roofing replaced our entire roof and the workmanship was exceptional. The team was professional, on-time, and cleaned up thoroughly. Highly recommend!</blockquote><div class="reviewer"><div class="reviewer-av">D</div><div><div class="reviewer-name">David M.</div><div class="reviewer-loc">Port Credit, Mississauga, ON</div></div></div></div>
+      <div class="review-card reveal reveal-delay-1"><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><blockquote>Had an emergency leak during a storm and they came out the same day. Quick, professional repair at a fair price. These guys really care about their customers.</blockquote><div class="reviewer"><div class="reviewer-av">S</div><div><div class="reviewer-name">Sarah K.</div><div class="reviewer-loc">Meadowvale, Mississauga, ON</div></div></div></div>
+      <div class="review-card reveal reveal-delay-2"><div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><blockquote>Best roofing company in Mississauga! We got three quotes and Maple Ridge was the most reasonable. Five years later, zero issues. Great warranty support too.</blockquote><div class="reviewer"><div class="reviewer-av">M</div><div><div class="reviewer-name">Michael T.</div><div class="reviewer-loc">Streetsville, Mississauga, ON</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div><h2>Ready to get started?</h2><p>Contact us today for a free, no-obligation quote.</p></div>
+    <a href="#contact" class="btn-white">Get Your Free Quote →</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-tag">Contact</div></div>
+    <h2 class="section-title reveal">Ready to Protect Your Roof?</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info reveal">
+          <h3>Get in Touch</h3>
+          <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><span class="contact-label">Phone</span><div class="contact-val"><a href="tel:6475559876">647-555-9876</a></div></div></div>
+          <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><span class="contact-label">Location</span><div class="contact-val">Mississauga, ON</div></div></div>
+          <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><span class="contact-label">Hours</span><div class="contact-val">Mon-Fri 8am-6pm, Sat 9am-4pm</div></div></div>
+        </div>
+        <div class="hours-card reveal">
+          <h4>Hours of Operation</h4>
+          <div class="hours-row"><span>Monday – Friday</span><strong>8:00am – 6:00pm</strong></div>
+          <div class="hours-row"><span>Saturday</span><strong>9:00am – 4:00pm</strong></div>
+          <div class="hours-row"><span>Sunday</span><strong>By appointment</strong></div>
+        </div>
+      </div>
+      <div class="form-card reveal">
+        <h3>Request a Free Quote</h3>
+        <p>Fill out the form and we'll get back to you within a few hours.</p>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
+            <div class="form-group"><label>Phone *</label><input type="tel" placeholder="647-000-0000" required></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="john@email.com"></div>
+          <div class="form-group"><label>Service Needed</label>
+            <select><option value="">Select a service...</option>
+              <option>Roof Installation</option><option>Roof Repair</option><option>Roof Replacement</option>
+              <option>Inspections & Maintenance</option><option>Gutter Services</option><option>Storm Damage Repair</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your project..."></textarea></div>
+          <button type="submit" class="form-submit">Send Request →</button>
+          <div class="form-success" id="formSuccess">✓ Thank you! We'll be in touch shortly.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-logo">Maple<span style="color:var(--ac)">Ridge Roofing</span></div><p class="footer-desc">Maple Ridge Roofing is Mississauga's trusted source for professional roofing services. Contact us today for a free estimate and experience the difference quality craftsmanship makes.</p></div>
+      <div class="footer-col"><h4>Services</h4><ul><li>Roof Installation</li><li>Roof Repair</li><li>Roof Replacement</li><li>Inspections & Maintenance</li><li>Gutter Services</li></ul></div>
+      <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:6475559876">647-555-9876</a></li><li>Mississauga, ON</li><li>Mon-Fri 8am-6pm, Sat 9am-4pm</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="demo-pill">DEMO SITE</span>Built by <a href="https://wrenchdigital.ca" target="_blank">Wrench Digital</a></p>
+      <p>© 2026 Maple Ridge Roofing</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+// Hero image parallax + load
+const heroBg = document.getElementById('heroBg');
+heroBg.style.backgroundImage = "url('https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=1600&q=80')";
+setTimeout(() => heroBg.classList.add('loaded'), 100);
+window.addEventListener('scroll', () => {
+  heroBg.style.transform = 'scale(1.05) translateY(' + (window.scrollY * 0.15) + 'px)';
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Counter animation
+function animateCounter(el, target, suffix) {
+  const duration = 1800;
+  const start = performance.now();
+  const update = (time) => {
+    const progress = Math.min((time - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const raw = e.target.dataset.count || '0';
+      const num = parseInt(raw.replace(/D/g, '')) || 0;
+      const suffix = raw.replace(/[0-9]/g, '');
+      animateCounter(e.target, num, suffix);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObs.observe(el));
+
+// Form submit
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('formSuccess').style.display = 'block';
+  this.reset();
+});
+</script>
+</body>
+</html>
